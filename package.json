@@ -16,9 +16,12 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
+    "@sanity/client": "^6.1.7",
+    "@sanity/image-url": "^1.0.2",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-mdx": "^5.11.0",
+    "gatsby-plugin-sanity-image": "^0.13.4",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-remark-autolink-headers": "^6.11.0",
     "gatsby-source-filesystem": "^5.11.0",

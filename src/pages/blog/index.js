@@ -4,16 +4,17 @@ import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
 
 const BlogPage = ({data}) => {
+    console.log(data)
   return (
     <Layout pageTitle="Blog Posts">
       {
-        data.allMdx.nodes.map((node) => (
+        data.allSanityPost.nodes.map((node) => (
           <article key={node.id}>
             <h2>
-                <Link to={`/blog/${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
+                <Link to={`/blog/${node.slug.current}`}>{node.title}</Link>
             </h2>
-            <p>Posted: {node.frontmatter.date}</p>
-            <p>{node.slug}</p>
+            <p>Posted: {node.publishedAt}</p>
+            <p>{node.slug.current}</p>
           </article>
         ))
       }
@@ -23,18 +24,33 @@ const BlogPage = ({data}) => {
 
 export const query = graphql`
 query MyQuery {
-    allMdx(sort: {frontmatter: {date: DESC}}) {
-      pageInfo {
-        perPage
-      }
+    allSanityPost(sort: {_createdAt: DESC}) {
       nodes {
-        frontmatter {
-          date(formatString: "YYYY.MM.DD")
-          slug
+        body {
+          children {
+            text
+          }
+        }
+        author {
+          name
+          _createdAt
+        }
+        mainImage {
+          asset {
+            altText
+            url
+          }
+        }
+        teaser
+        categories {
           title
         }
         id
-        excerpt
+        slug {
+          current
+        }
+        title
+        publishedAt(formatString: "YYYY.MM.DD")
       }
     }
   }

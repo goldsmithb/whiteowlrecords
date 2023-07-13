@@ -2,19 +2,24 @@ import * as React from 'react'
 import Layout from '../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
+import '../components/homePageStyles.css'
+import NavBar from '../components/NavBar.js'
 
 const IndexPage = () => {
   return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-      <StaticImage 
-        alt="A picture of earth from the Voyager 1"
-        src="../images/home.jpg"
-      />
-    </Layout>
+
+<>
+    <NavBar />
+    <p>.</p>
+    <StaticImage style={{margin: "50px"}}
+        alt="WHITEOWLRECORDS banner"
+        src="../images/banner.png"
+    />
+</>
+     
   )
 }
 
-export const Head = () => <Seo title="Home Page"/>
+export const Head = () => <Seo title="WHITEOWLRECORDS WELCOMES YOU =)"/>
 
 export default IndexPage
