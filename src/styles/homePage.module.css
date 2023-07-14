@@ -1,0 +1,17 @@
+.cream-background {
+    background-image: url('../images/CREAM.jpg');
+}
+
+.player-container {
+    display: flex;
+    gap: 2vh;
+    justify-content: space-around;
+}
+
+.player {
+
+}
+
+.banner {
+    margin: 10vh;
+}

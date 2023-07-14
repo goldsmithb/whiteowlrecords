@@ -2,9 +2,17 @@ import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
+import { useEffect } from 'react'
+
 
 const BlogPage = ({data}) => {
     console.log(data)
+
+    useEffect(() => {
+        document.body.classList.remove(`cream-background`);
+        document.body.classList.add(`navy-background`);
+    });
+
   return (
     <Layout pageTitle="Thoughts">
       {
