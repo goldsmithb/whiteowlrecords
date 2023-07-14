@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
 import { useEffect } from 'react'
+import * as styles from '../../styles/blogStyles.module.css'
 
 const BlogPage = ({data}) => {
 
@@ -15,17 +16,21 @@ const BlogPage = ({data}) => {
     console.log(data)
   return (
     <Layout pageTitle="Sounds">
-      {
-        data.allSanitySoundPost.nodes.map((node) => (
-          <article style={{marginLeft: "10vw"}} key={node.id}>
-            <h2>
-                <Link to={`/sounds/${node.slug.current}`}>{node.title}</Link>
-            </h2>
-            <p>Posted: {node.publishedAt}</p>
-            <p>{node.slug.current}</p>
-          </article>
-        ))
-      }
+        <div className={StyleSheet.container}>
+            {
+                data.allSanitySoundPost.nodes.map((node) => (
+                <article className={styles.article} key={node.id}>
+                {console.log(node)}
+                    <h2>
+                        <Link to={`/sounds/${node.slug.current}`}>{node.title}</Link>
+                    </h2>
+                    <p>Posted: {node.publishedAt}</p>
+                    <p>{node.teaser}</p>
+                </article>
+                ))
+            }
+        </div>
+      
     </Layout>
   )
 }
