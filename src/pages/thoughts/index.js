@@ -8,10 +8,10 @@ const BlogPage = ({data}) => {
   return (
     <Layout pageTitle="Thoughts">
       {
-        data.allSanityPost.nodes.map((node) => (
+        data.allSanityThoughtPost.nodes.map((node) => (
           <article style={{marginLeft: "10vw"}} key={node.id}>
             <h2>
-                <Link to={`/blog/${node.slug.current}`}>{node.title}</Link>
+                <Link to={`/thoughts/${node.slug.current}`}>{node.title}</Link>
             </h2>
             <p>Posted: {node.publishedAt}</p>
             <p>{node.slug.current}</p>
@@ -23,37 +23,36 @@ const BlogPage = ({data}) => {
 }
 
 export const query = graphql`
-query MyQuery {
-    allSanityPost(sort: {_createdAt: DESC}) {
-      nodes {
-        body {
-          children {
-            text
-          }
+query AllThoughtPosts {
+  allSanityThoughtPost(sort: {publishedAt: DESC}) {
+    nodes {
+      title
+      publishedAt(formatString: "YYYY.MM.DD")
+      body {
+        children {
+          text
         }
-        author {
-          name
-          _createdAt
+      }
+      author {
+        name
+      }
+      mainImage {
+        asset {
+          altText
+          url
         }
-        mainImage {
-          asset {
-            altText
-            url
-          }
-        }
-        teaser
-        categories {
-          title
-        }
-        id
-        slug {
-          current
-        }
+      }
+      teaser
+      categories {
         title
-        publishedAt(formatString: "YYYY.MM.DD")
+      }
+      id
+      slug {
+        current
       }
     }
   }
+}
 `
 
 export const Head = () => <Seo title="Blog Posts" />

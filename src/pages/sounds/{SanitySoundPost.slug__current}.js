@@ -5,11 +5,11 @@ import { graphql } from 'gatsby'
 import Image from "gatsby-plugin-sanity-image"
 
 
-const BlogPost = ({data, children}) => {
+const SoundPost = ({data, children}) => {
     console.log(data)
   return (
     // <div>Hello!</div>
-    <Layout pageTitle={data.allSanityPost.title}>
+    <Layout pageTitle={data.allSanitySoundPost.title}>
       <p>Posted: {data.publishedAt}</p>
 
       Photo Credit:{" "}
@@ -24,31 +24,11 @@ const BlogPost = ({data, children}) => {
 export const Head = ({data}) => <Seo title="{data}" />
 
 export const query = graphql`
-  query {
-    allSanityPost(sort: {_createdAt: DESC}) {
+query AllSoundsPosts {
+    allSanitySoundPost {
       nodes {
-        body {
-          children {
-            text
-          }
-        }
-        author {
-          name
-          _createdAt
-        }
-        mainImage {
-          ...ImageWithPreview
-        }
-        teaser
-        categories {
-          title
-        }
-        id
-        slug {
-          current
-        }
         title
-        publishedAt(formatString: "YYYY.MM.DD")
+        publishedAt
       }
     }
   }
@@ -56,4 +36,4 @@ export const query = graphql`
 
 
 
-export default BlogPost
+export default SoundPost

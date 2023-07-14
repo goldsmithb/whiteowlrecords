@@ -9,7 +9,7 @@ const SoundPost = ({data, children}) => {
     console.log(data)
   return (
     // <div>Hello!</div>
-    <Layout pageTitle={data.allSanityPost.title}>
+    <Layout pageTitle={data.allSanityThoughtPost.title}>
       <p>Posted: {data.publishedAt}</p>
 
       Photo Credit:{" "}
@@ -24,14 +24,11 @@ const SoundPost = ({data, children}) => {
 export const Head = ({data}) => <Seo title="{data}" />
 
 export const query = graphql`
-query SoundsPosts {
-    allSanityPost(filter: {categories: {elemMatch: {title: {eq: "Thoughts"}}}}) {
+query AllThoughtPosts {
+    allSanityThoughtPost {
       nodes {
         title
-        categories {
-          title
-        }
-        publishedAt(formatString: "YYYY.MM.DD")
+        publishedAt
       }
     }
   }

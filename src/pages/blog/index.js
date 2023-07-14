@@ -8,7 +8,7 @@ const BlogPage = ({data}) => {
   return (
     <Layout pageTitle="Blog Posts">
       {
-        data.allSanityPost.nodes.map((node) => (
+        data.allSanitySoundPost.nodes.map((node) => (
           <article key={node.id}>
             <h2>
                 <Link to={`/blog/${node.slug.current}`}>{node.title}</Link>
@@ -23,9 +23,11 @@ const BlogPage = ({data}) => {
 }
 
 export const query = graphql`
-query MyQuery {
-    allSanityPost(sort: {_createdAt: DESC}) {
+query AllPostsAllKinds {
+    allSanityThoughtPost(sort: {publishedAt: DESC}) {
       nodes {
+        title
+        publishedAt(formatString: "YYYY.MM.DD")
         body {
           children {
             text
@@ -33,7 +35,6 @@ query MyQuery {
         }
         author {
           name
-          _createdAt
         }
         mainImage {
           asset {
@@ -49,8 +50,34 @@ query MyQuery {
         slug {
           current
         }
+      }
+    }
+    allSanitySoundPost(sort: {publishedAt: DESC}) {
+      nodes {
         title
         publishedAt(formatString: "YYYY.MM.DD")
+        body {
+          children {
+            text
+          }
+        }
+        author {
+          name
+        }
+        mainImage {
+          asset {
+            altText
+            url
+          }
+        }
+        teaser
+        categories {
+          title
+        }
+        id
+        slug {
+          current
+        }
       }
     }
   }
