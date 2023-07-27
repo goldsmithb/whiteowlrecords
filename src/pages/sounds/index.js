@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
+// import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import NavBar from '../../components/NavBar.js'
 import BottomBar from '../../components/BottomBar.js'
 import ReactPlayer from "react-player"

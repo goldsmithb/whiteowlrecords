@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
+// import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { graphql } from 'gatsby'
-import SanityImage from "gatsby-plugin-sanity-image"
-import {PortableText} from '@portabletext/react'
+// import SanityImage from "gatsby-plugin-sanity-image"
+// import {PortableText} from '@portabletext/react'
 
 const SoundPost = ({data, children}) => {
     console.log(data)

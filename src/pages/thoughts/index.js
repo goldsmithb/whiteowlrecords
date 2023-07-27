@@ -1,14 +1,14 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
+// import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import NavBar from '../../components/NavBar.js'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as styles from '../../styles/thoughtStyles.module.css'
 import BottomBar from '../../components/BottomBar.js'
 import PortableText from "react-portable-text"
-import SanityImage from "gatsby-plugin-sanity-image"
+// import SanityImage from "gatsby-plugin-sanity-image"
 
 
 const BlogPage = ({data}) => {
@@ -30,13 +30,13 @@ const BlogPage = ({data}) => {
   return (
     <>
     <NavBar />
-    <div className={styles.container}>
-        <header className={styles.siteTitle}>
+    <header className={styles.siteTitle}>
             <StaticImage 
                 alt="WHITEOWLRECORDS banner"
                 src="../../images/banner.png"
             />
         </header>
+    <div className={styles.container}>
       <main>
         <div className={styles.row}>
             <div className={styles.column}>
