@@ -12,24 +12,24 @@ const SoundPost = ({data, children}) => {
 
     // const imageData = getGatsbyImageData(data.sanitySoundPost.mainImage.asset)
   return (
-    // <div>Hello!</div>
-    <Layout pageTitle={data.sanitySoundPost.title}>
-    <SanityImage 
-            // alt={data.sanitySoundPost.Image.}
-            asset={data.sanitySoundPost.mainImage.asset}
-        />
-    <p>Author: {data.sanitySoundPost.author.name}</p>
-    <p>Posted: {data.sanitySoundPost.publishedAt}</p>
-      <div>
-        {/* {data.sanitySoundPost.body.map(block => {
-            <PortableText 
-                value={data.block}
-            />
-        })} */}
+    <div>Hello!</div>
+    // <Layout pageTitle={data.sanitySoundPost.title}>
+    // <SanityImage 
+    //         // alt={data.sanitySoundPost.Image.}
+    //         asset={data.sanitySoundPost.mainImage.asset}
+    //     />
+    // <p>Author: {data.sanitySoundPost.author.name}</p>
+    // <p>Posted: {data.sanitySoundPost.publishedAt}</p>
+    //   <div>
+    //     {/* {data.sanitySoundPost.body.map(block => {
+    //         <PortableText 
+    //             value={data.block}
+    //         />
+    //     })} */}
        
-      </div>
-      {children} 
-    </Layout>
+    //   </div>
+    //   {children} 
+    // </Layout>
   )
 }
 

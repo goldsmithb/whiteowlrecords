@@ -2,36 +2,60 @@ import * as React from 'react'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { useEffect } from 'react'
-import * as styles from '../../styles/blogStyles.module.css'
+import NavBar from '../../components/NavBar.js'
+import BottomBar from '../../components/BottomBar.js'
+import ReactPlayer from "react-player"
+// import * as styles from '../../styles/blogStyles.module.css'
+import * as styles from '../../styles/soundStyles.module.css'
+// import { PortableText } from '@portabletext/react'
 
 const BlogPage = ({data}) => {
-
-    useEffect(() => {
-        document.body.classList.remove(`cream-background`);
-        document.body.classList.add(`navy-background`);
-    });
-
-
     console.log(data)
+    console.log("HE")
   return (
-    <Layout pageTitle="Sounds">
-        <div className={StyleSheet.container}>
-            {
-                data.allSanitySoundPost.nodes.map((node) => (
-                <article className={styles.article} key={node.id}>
-                {console.log(node)}
-                    <h2>
-                        <Link to={`/sounds/${node.slug.current}`}>{node.title}</Link>
-                    </h2>
-                    <p>Posted: {node.publishedAt}</p>
-                    <p>{node.teaser}</p>
-                </article>
-                ))
-            }
+    <React.Fragment>
+        <NavBar />
+        <header className={styles.siteTitle}>
+            <StaticImage 
+                alt="WHITEOWLRECORDS banner"
+                src="../../images/banner.png"
+            />
+        </header>
+        <div  className={styles.homePage}>
+            <div className={styles.banner}>
+                <StaticImage 
+                    alt="WHITEOWLRECORDS banner"
+                    src="../images/banner.png"
+                />
+            </div>
+            <div className={styles.playerContainer}>
+                <div className={styles.player}>
+                    {/* <ReactPlayer 
+                        controls="true"
+                        url="https://drimaudio.bandcamp.com/album/twenty-over-ep"
+                    /> */}
+                    <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=3142640843/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
+                        <a href="https://drimaudio.bandcamp.com/album/twenty-over-ep">Twenty over EP by Drim</a>
+                    </iframe>
+                <p className={styles.buyLink}><a href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
+                </div>
+                <div className={styles.player}>
+                    {/* <ReactPlayer 
+                        controls="true"
+                        url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
+                    /> */}
+
+                <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=1735788970/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
+                    <a href="https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier">Guardian Angel Language Barrier by Piner</a>
+                </iframe>
+                <p className={styles.buyLink}><a href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
+                </div>
+            </div>
         </div>
-      
-    </Layout>
+        <BottomBar />
+    </React.Fragment>
   )
 }
 
@@ -40,8 +64,8 @@ query AllSoundPosts {
     allSanitySoundPost(sort: {publishedAt: DESC}) {
       nodes {
         title
-        publishedAt(formatString: "YYYY.MM.DD")
         body {
+          style
           children {
             text
           }
@@ -51,7 +75,6 @@ query AllSoundPosts {
         }
         mainImage {
           asset {
-            altText
             url
           }
         }
@@ -59,10 +82,7 @@ query AllSoundPosts {
         categories {
           title
         }
-        id
-        slug {
-          current
-        }
+        _rawBody
       }
     }
   }

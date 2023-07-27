@@ -3,30 +3,74 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 import { Link, graphql } from 'gatsby'
 import { useEffect } from 'react'
+import NavBar from '../../components/NavBar.js'
+import { StaticImage } from 'gatsby-plugin-image'
+import * as styles from '../../styles/thoughtStyles.module.css'
+import BottomBar from '../../components/BottomBar.js'
+import PortableText from "react-portable-text"
+import SanityImage from "gatsby-plugin-sanity-image"
 
 
 const BlogPage = ({data}) => {
-    console.log(data)
-
-    useEffect(() => {
-        document.body.classList.remove(`cream-background`);
-        document.body.classList.add(`navy-background`);
+    let leftChildren = [];
+    let rightChildren = [];
+    let count = 0;
+    let i = 0;
+    let j = 0;
+    data.allSanityThoughtPost.nodes.map((node) => {
+        console.log(count);
+        if (count % 2 == 0) {
+            leftChildren[i++] = node;
+        } else {
+            rightChildren[j++] = node;
+        }
+        count += 1;
     });
-
+    console.log(data)
   return (
-    <Layout pageTitle="Thoughts">
-      {
-        data.allSanityThoughtPost.nodes.map((node) => (
-          <article style={{marginLeft: "10vw"}} key={node.id}>
-            <h2>
-                <Link to={`/thoughts/${node.slug.current}`}>{node.title}</Link>
-            </h2>
-            <p>Posted: {node.publishedAt}</p>
-            <p>{node.slug.current}</p>
-          </article>
-        ))
-      }
-    </Layout>
+    <>
+    <NavBar />
+    <div className={styles.container}>
+        <header className={styles.siteTitle}>
+            <StaticImage 
+                alt="WHITEOWLRECORDS banner"
+                src="../../images/banner.png"
+            />
+        </header>
+      <main>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                {leftChildren.map(post => (
+                    <div className={styles.post}>
+                        <h1 className={styles.title}>{post.title}</h1>
+                        {/* <SanityImage 
+                            // alt={data.sanityThoughtPost.Image.}
+                            asset={post.mainImage.asset}
+                        /> */}
+                        <div>{post.author.name} | {post.publishedAt}</div>
+                        <PortableText
+                            content={post._rawBody}
+                        />
+                    </div>
+                ))}
+            </div>
+
+            <div className={styles.column}>
+                {rightChildren.map(post => (
+                    <div className={styles.post}>
+                        <h1 className={styles.title}>{post.title}</h1>
+                        <div>{post.author.name} | {post.publishedAt}</div>
+                        <PortableText
+                            content={post._rawBody}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div> 
+      </main>
+    </div>
+    <BottomBar />
+    </>
   )
 }
 
@@ -58,6 +102,7 @@ query AllThoughtPosts {
       slug {
         current
       }
+      _rawBody
     }
   }
 }

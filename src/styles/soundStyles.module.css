@@ -1,0 +1,32 @@
+.player-container {
+    display: flex;
+    gap: 2vh;
+    justify-content: space-around;
+}
+
+.player {
+
+}
+
+.banner {
+    margin: 10vh;
+}
+
+.buy-link {
+    font-style: oblique;
+    text-align: center;
+}
+
+.band-camp-player {
+    border: 0; 
+    width: 600px; 
+    height: 274px;
+}
+
+.buy-link:link { text-decoration: none; }
+
+.buy-link:visited { text-decoration: none; }
+
+.buy-link:hover { text-decoration: none; }
+
+.buy-link:active { text-decoration: none; }

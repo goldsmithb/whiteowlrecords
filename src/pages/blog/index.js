@@ -6,19 +6,20 @@ import { Link, graphql } from 'gatsby'
 const BlogPage = ({data}) => {
     console.log(data)
   return (
-    <Layout pageTitle="Blog Posts">
-      {
-        data.allSanitySoundPost.nodes.map((node) => (
-          <article key={node.id}>
-            <h2>
-                <Link to={`/blog/${node.slug.current}`}>{node.title}</Link>
-            </h2>
-            <p>Posted: {node.publishedAt}</p>
-            <p>{node.slug.current}</p>
-          </article>
-        ))
-      }
-    </Layout>
+    <div>hey</div>
+    // <Layout pageTitle="Blog Posts">
+    //   {
+    //     data.allSanitySoundPost.nodes.map((node) => (
+    //       <article key={node.id}>
+    //         <h2>
+    //             <Link to={`/blog/${node.slug.current}`}>{node.title}</Link>
+    //         </h2>
+    //         <p>Posted: {node.publishedAt}</p>
+    //         <p>{node.slug.current}</p>
+    //       </article>
+    //     ))
+    //   }
+    // </Layout>
   )
 }
 

@@ -9,14 +9,10 @@ import BottomBar from '../components/BottomBar.js'
 import ReactPlayer from "react-player"
 import * as styles from '../styles/homePage.module.css'
 import * as textStyles from '../styles/textStyles.module.css'
-import '../styles/background.css'
+import '../styles/globalStyles.css'
 
 
-const IndexPage = () => {
-    useEffect(() => {
-        document.body.classList.remove(`navy-background`);
-        document.body.classList.toggle(`cream-background`);
-    });
+const IndexPage = () => { 
   return (
 <React.Fragment>
     <NavBar />

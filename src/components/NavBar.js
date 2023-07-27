@@ -6,24 +6,14 @@ const NavBar = () => {
     return (
         <nav>
             <ul className={styles.navLinks}>
-                <li className="nav-link-item">
-                    <Link to="/" className={styles.navLinkText}>
-                        Home /
-                    </Link>
-                </li>
-                <li className={styles.navLinkItem}>
-                    <Link to="/contact" className={styles.navLinkText}>
-                        / Contact /
-                    </Link>
-                </li>
                  <li className={styles.navLinkItem}>
                     <Link to="/sounds" className={styles.navLinkText}>
-                        / Sounds /
+                        \ Sounds /
                     </Link>
                 </li>
                 <li className={styles.navLinkItem}>
                     <Link to="/thoughts" className={styles.navLinkText}>
-                        / Thoughts
+                        / Thoughts \
                     </Link>
                 </li>
             </ul>
