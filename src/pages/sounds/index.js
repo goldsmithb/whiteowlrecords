@@ -31,20 +31,17 @@ const BlogPage = ({data}) => {
             </div> */}
             <div className={styles.playerContainer}>
                 <div className={styles.player}>
-                    <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=3142640843/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
-                        <a href="https://drimaudio.bandcamp.com/album/twenty-over-ep">Twenty over EP by Drim</a>
-                    </iframe>
+                    <ReactPlayer 
+                        controls="true"
+                        url="https://soundcloud.com/drim-audio/sets/twenty-over-ep"
+                    />
                 <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
                 </div>
                 <div className={styles.player}>
-                    {/* <ReactPlayer 
+                    <ReactPlayer 
                         controls="true"
                         url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
-                    /> */}
-
-                <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=1735788970/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
-                    <a href="https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier">Guardian Angel Language Barrier by Piner</a>
-                </iframe>
+                    />
                 <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
                 </div>
             </div>

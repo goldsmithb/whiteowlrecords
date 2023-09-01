@@ -12,21 +12,7 @@ import PortableText from "react-portable-text"
 
 
 const BlogPage = ({data}) => {
-    let leftChildren = [];
-    let rightChildren = [];
-    let count = 0;
-    let i = 0;
-    let j = 0;
-    data.allSanityThoughtPost.nodes.map((node) => {
-        console.log(count);
-        if (count % 2 == 0) {
-            leftChildren[i++] = node;
-        } else {
-            rightChildren[j++] = node;
-        }
-        count += 1;
-    });
-    console.log(data)
+    
   return (
     <>
     <NavBar />
