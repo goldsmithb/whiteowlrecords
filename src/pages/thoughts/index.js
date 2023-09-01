@@ -38,9 +38,8 @@ const BlogPage = ({data}) => {
         </header>
     <div className={styles.container}>
       <main>
-        <div className={styles.row}>
-            <div className={styles.column}>
-                {leftChildren.map(post => (
+        <div className={styles.feed}>
+        {data.allSanityThoughtPost.nodes.map(post => (
                     <div className={styles.post}>
                         <h1 className={styles.title}>{post.title}</h1>
                         {/* <SanityImage 
@@ -53,20 +52,7 @@ const BlogPage = ({data}) => {
                         />
                     </div>
                 ))}
-            </div>
-
-            <div className={styles.column}>
-                {rightChildren.map(post => (
-                    <div className={styles.post}>
-                        <h1 className={styles.title}>{post.title}</h1>
-                        <div>{post.author.name} | {post.publishedAt}</div>
-                        <PortableText
-                            content={post._rawBody}
-                        />
-                    </div>
-                ))}
-            </div>
-        </div> 
+        </div>
       </main>
     </div>
     <BottomBar />

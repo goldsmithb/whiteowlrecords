@@ -1,17 +1,9 @@
-.row {
-    display: flex;
-}
-  
-.column {
-    flex: 50%;
-    margin: 10px;
-}   
-
 .post {
-    border-style: dashed;
+    border-style: solid;
     margin: 10px;
     margin-bottom: 40px;
-    padding: 5px;
+    padding: 25px;
+    background-color: rgba(167, 167, 167, 0.18);
 }
 
 .title {
@@ -31,13 +23,6 @@
     width: 90vw;
     height: 20vh;
 }
-
-/* .site-title {
-    font-size: 3rem;
-    color: gray;
-    font-weight: 700;
-    margin: 3rem 0;
-  } */
 
 .email-text {
     color: rgb(from color .097, .214, .450);
