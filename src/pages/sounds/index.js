@@ -34,7 +34,7 @@ const BlogPage = ({data}) => {
                     <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=3142640843/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
                         <a href="https://drimaudio.bandcamp.com/album/twenty-over-ep">Twenty over EP by Drim</a>
                     </iframe>
-                <p className={styles.buyLink}><a href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
+                <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
                 </div>
                 <div className={styles.player}>
                     {/* <ReactPlayer 
@@ -45,7 +45,7 @@ const BlogPage = ({data}) => {
                 <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=1735788970/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
                     <a href="https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier">Guardian Angel Language Barrier by Piner</a>
                 </iframe>
-                <p className={styles.buyLink}><a href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
+                <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
                 </div>
             </div>
         </div>

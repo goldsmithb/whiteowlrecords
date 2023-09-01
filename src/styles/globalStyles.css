@@ -1,9 +1,9 @@
 html {
     font-family: 'Courier New', monospace;
-    /* color: white; */
+    color: white;
 }
 
 body {
-    background-image: url('../images/CREAM.jpg');
-    /* background-image: url('../images/NAVY.jpg'); */
+    /* background-image: url('../images/CREAM.jpg'); */
+    background-image: url('../images/NAVY.jpg');
 }
