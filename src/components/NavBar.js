@@ -8,12 +8,13 @@ const NavBar = () => {
             <ul className={styles.navLinks}>
                  <li className={styles.navLinkItem}>
                     <Link to="/sounds" className={styles.navLinkText}>
-                        \ Sounds /
+                        Sounds
                     </Link>
                 </li>
+                <li className={styles.navLinkItem}>|</li>
                 <li className={styles.navLinkItem}>
                     <Link to="/thoughts" className={styles.navLinkText}>
-                        / Thoughts \
+                        Thoughts
                     </Link>
                 </li>
             </ul>
