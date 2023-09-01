@@ -13,29 +13,24 @@ import * as styles from '../../styles/soundStyles.module.css'
 
 const BlogPage = ({data}) => {
     console.log(data)
-    console.log("HE")
   return (
     <React.Fragment>
         <NavBar />
-        <header className={styles.siteTitle}>
+        <header className={styles.banner}>
             <StaticImage 
                 alt="WHITEOWLRECORDS banner"
                 src="../../images/banner.png"
             />
         </header>
         <div  className={styles.homePage}>
-            <div className={styles.banner}>
+            {/* <div className={styles.banner}>
                 <StaticImage 
                     alt="WHITEOWLRECORDS banner"
                     src="../images/banner.png"
                 />
-            </div>
+            </div> */}
             <div className={styles.playerContainer}>
                 <div className={styles.player}>
-                    {/* <ReactPlayer 
-                        controls="true"
-                        url="https://drimaudio.bandcamp.com/album/twenty-over-ep"
-                    /> */}
                     <iframe className={styles.bandCampPlayer} src="https://bandcamp.com/EmbeddedPlayer/album=3142640843/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless>
                         <a href="https://drimaudio.bandcamp.com/album/twenty-over-ep">Twenty over EP by Drim</a>
                     </iframe>

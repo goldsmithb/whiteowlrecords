@@ -30,7 +30,7 @@ const BlogPage = ({data}) => {
   return (
     <>
     <NavBar />
-    <header className={styles.siteTitle}>
+    <header className={styles.banner}>
             <StaticImage 
                 alt="WHITEOWLRECORDS banner"
                 src="../../images/banner.png"
