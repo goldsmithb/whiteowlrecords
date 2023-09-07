@@ -1,9 +1,15 @@
 .bottom-bar {
-    text-align: center;
-    font-size: 12px;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.bottom-bar-text {
+    text-align: center;
+    font-size: 12px;
+    width: fit-content;
+    background-image: url('../images/NAVY.jpg');
+    margin: auto;
 }
 
 .link-text {
