@@ -1,12 +1,17 @@
+.banner {
+    width: 90vw;
+    height: 20vh;
+}
+
 .players-container {
     gap: 2vh;
     width: fit-content;
     margin: 20px auto 20px auto;
 }
 
-.banner {
-    width: 90vw;
-    height: 20vh;
+.player {
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 
 .buy-link-wrapper {
@@ -26,8 +31,7 @@
     height: 274px;
 }
 
-.buy-link:link { text-decoration: none;
-    color: white;
+.buy-link:link { text-decoration: none; color: white;
 }
 
 .buy-link:visited { text-decoration: none; color: white; }
