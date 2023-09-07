@@ -1,11 +1,7 @@
-.player-container {
-    display: flex;
+.players-container {
     gap: 2vh;
-    justify-content: space-around;
-}
-
-.player {
-
+    width: fit-content;
+    margin: 20px auto 20px auto;
 }
 
 .banner {

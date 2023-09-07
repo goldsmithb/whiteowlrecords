@@ -22,28 +22,27 @@ const BlogPage = ({data}) => {
                 src="../../images/banner.png"
             />
         </header>
-        <div  className={styles.homePage}>
-            {/* <div className={styles.banner}>
-                <StaticImage 
-                    alt="WHITEOWLRECORDS banner"
-                    src="../images/banner.png"
+        {/* <div className={styles.banner}>
+            <StaticImage 
+                alt="WHITEOWLRECORDS banner"
+                src="../images/banner.png"
+            />
+        </div> */}
+        <div className={styles.playersContainer}>
+            <div className={styles.player}>
+                <ReactPlayer
+                    controls="true"
+                    url="https://soundcloud.com/drim-audio/sets/twenty-over-ep"
+                    playing="true"
                 />
-            </div> */}
-            <div className={styles.playerContainer}>
-                <div className={styles.player}>
-                    <ReactPlayer 
-                        controls="true"
-                        url="https://soundcloud.com/drim-audio/sets/twenty-over-ep"
-                    />
-                <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
-                </div>
-                <div className={styles.player}>
-                    <ReactPlayer 
-                        controls="true"
-                        url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
-                    />
-                <p className={styles.buyLinkWrapper}><a className={styles.linkText} href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
-                </div>
+            <p className={styles.buyLinkWrapper}><a className={styles.linkText} target="_blank" href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>Bandcamp</a></p>
+            </div>
+            <div className={styles.player}>
+                <ReactPlayer 
+                    controls="true"
+                    url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
+                />
+            <p className={styles.buyLinkWrapper}><a className={styles.linkText} target="_blank" href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>Bandcamp</a></p>
             </div>
         </div>
         <BottomBar />
