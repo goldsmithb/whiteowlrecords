@@ -10,11 +10,15 @@ import ReactPlayer from "react-player"
 // import * as styles from '../../styles/blogStyles.module.css'
 import * as styles from '../../styles/soundStyles.module.css'
 // import { PortableText } from '@portabletext/react'
+import { Helmet } from 'react-helmet';
 
 const BlogPage = ({data}) => {
     console.log(data)
   return (
     <React.Fragment>
+        <Helmet>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        </Helmet>
         <NavBar />
         <header className={styles.banner}>
             <StaticImage 

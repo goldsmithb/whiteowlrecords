@@ -10,12 +10,16 @@ import ReactPlayer from "react-player"
 import * as styles from '../styles/homePage.module.css'
 import * as textStyles from '../styles/textStyles.module.css'
 import '../styles/globalStyles.css'
+import { Helmet } from 'react-helmet'
 
 
 const IndexPage = () => { 
   return (
 <React.Fragment>
     <NavBar />
+    <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    </Helmet>
     <div  className={styles.homePage}>
         <div className={styles.banner}>
             <StaticImage 

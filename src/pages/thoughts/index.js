@@ -8,6 +8,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import * as styles from '../../styles/thoughtStyles.module.css'
 import BottomBar from '../../components/BottomBar.js'
 import PortableText from "react-portable-text"
+import { Helmet } from 'react-helmet'
 // import SanityImage from "gatsby-plugin-sanity-image"
 
 
@@ -16,6 +17,9 @@ const BlogPage = ({data}) => {
   return (
     <>
     <NavBar />
+    <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    </Helmet>
     <header className={styles.banner}>
             <StaticImage 
                 alt="WHITEOWLRECORDS banner"
