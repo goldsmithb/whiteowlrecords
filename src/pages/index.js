@@ -11,16 +11,27 @@ import * as styles from '../styles/homePage.module.css'
 import * as textStyles from '../styles/textStyles.module.css'
 import '../styles/globalStyles.css'
 import { Helmet } from 'react-helmet'
-
+import SoundsPage from '../components/SoundsPage.js'
+import ThoughtsPage from '../components/ThoughtsPage.js'
 
 const IndexPage = () => { 
+    const [page, setPage] = React.useState("sounds");
+    const changePage = (p) => setPage(p);
   return (
 <React.Fragment>
-    <NavBar />
+    <NavBar changePage={changePage}/>
     <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     </Helmet>
-    <div  className={styles.homePage}>
+    <header className={styles.banner}>
+        <StaticImage 
+            alt="WHITEOWLRECORDS banner"
+            src={"../images/banner.png"}
+        />
+    </header>
+    {page === "sounds" && <SoundsPage />}
+    {page === "thoughts" && <ThoughtsPage />}
+    {/* <div  className={styles.homePage}>
         <div className={styles.banner}>
             <StaticImage 
                 alt="WHITEOWLRECORDS banner"
@@ -43,7 +54,7 @@ const IndexPage = () => {
             <p className={styles.buyLink}><a href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>^^^^^^^^^Purchase on BandCamp^^^^^^^^^</a></p>
             </div>
         </div>
-    </div>
+    </div> */}
     <BottomBar />
 </React.Fragment>
      
