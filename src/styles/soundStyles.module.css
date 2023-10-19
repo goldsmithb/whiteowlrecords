@@ -39,3 +39,16 @@
 .buy-link:hover { text-decoration: none; color: white;}
 
 .buy-link:active { text-decoration: none; color: white;}
+
+@media (max-width: 768px) {
+    .mobile-player {
+        border: 0;
+        width: 340px;
+        height: 470px;
+    }
+
+    .player {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}

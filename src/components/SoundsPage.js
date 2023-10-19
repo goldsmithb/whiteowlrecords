@@ -6,38 +6,34 @@ import * as styles from '../styles/soundStyles.module.css'
 import { Helmet } from 'react-helmet';
 
 const SoundsPage = ({data}) => {
+    let isMobile =  window.innerWidth <= 768;
     console.log(data)
   return (
     <React.Fragment>
-        <Helmet>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        </Helmet>
-        {/* <header className={styles.banner}>
-            <StaticImage 
-                alt="WHITEOWLRECORDS banner"
-                src="../images/banner.png"
-            />
-        </header> */}
-        {/* <div className={styles.banner}>
-            <StaticImage 
-                alt="WHITEOWLRECORDS banner"
-                src="../images/banner.png"
-            />
-        </div> */}
         <div className={styles.playersContainer}>
             <div className={styles.player}>
-                <ReactPlayer
-                    controls={true}
-                    url="https://soundcloud.com/drim-audio/sets/twenty-over-ep"
-                />
+                { isMobile ? (
+                    <iframe className={styles.mobilePlayer} src="https://bandcamp.com/EmbeddedPlayer/album=3142640843/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/transparent=true/" seamless><a href="https://drimaudio.bandcamp.com/album/twenty-over-ep">Twenty over EP by Drim</a></iframe>
+                ) :
+                (
+                    <ReactPlayer
+                        controls={true}
+                        url="https://soundcloud.com/drim-audio/sets/twenty-over-ep"
+                    />
+                )}
             <p className={styles.buyLinkWrapper}><a className={styles.linkText} target="_blank" href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>Bandcamp</a></p>
             </div>
             <div className={styles.player}>
-                <ReactPlayer 
-                    controls={true}
-                    url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
-                />
-            <p className={styles.buyLinkWrapper}><a className={styles.linkText} target="_blank" href='https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier '>Bandcamp</a></p>
+                { isMobile ? (
+                    <iframe className={styles.mobilePlayer} src="https://bandcamp.com/EmbeddedPlayer/album=1735788970/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/transparent=true/" seamless><a href="https://pineraudio.bandcamp.com/album/guardian-angel-language-barrier">Guardian Angel Language Barrier by Piner</a></iframe>
+                ) :
+                (
+                    <ReactPlayer 
+                        controls={true}
+                        url="https://soundcloud.com/jack-cavenaugh/sets/guardian-angel-language-barrier"
+                    />
+                )}
+            <p className={styles.buyLinkWrapper}><a className={styles.linkText} target="_blank" href='https://drimaudio.bandcamp.com/album/twenty-over-ep'>Bandcamp</a></p>
             </div>
         </div>
     </React.Fragment>

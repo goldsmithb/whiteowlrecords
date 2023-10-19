@@ -8,16 +8,10 @@ const NavBar = ( { changePage } ) => {
             <ul className={styles.navLinks}>
                  <li className={styles.navLinkItem}>
                     <a className={styles.navLinkText} href="#" onClick={() => changePage("sounds")}>Sounds</a>
-                    {/* <Link to="/sounds" className={styles.navLinkText}>
-                        Sounds
-                    </Link> */}
                 </li>
-                <li className={styles.navLinkItem}>|</li>
+                <li className={styles.specialText}>|</li>
                 <li className={styles.navLinkItem}>
                     <a className={styles.navLinkText} href="#" onClick={() => changePage("thoughts")}>Thoughts</a>
-                    {/* <Link to="/thoughts" className={styles.navLinkText}>
-                        Thoughts
-                    </Link> */}
                 </li>
             </ul>
         </nav>

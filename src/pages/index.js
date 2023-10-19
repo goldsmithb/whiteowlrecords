@@ -19,10 +19,10 @@ const IndexPage = () => {
     const changePage = (p) => setPage(p);
   return (
 <React.Fragment>
-    <NavBar changePage={changePage}/>
     <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     </Helmet>
+    <NavBar changePage={changePage}/>
     <header className={styles.banner}>
         <StaticImage 
             alt="WHITEOWLRECORDS banner"
