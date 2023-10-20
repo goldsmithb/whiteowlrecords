@@ -6,7 +6,11 @@ import * as styles from '../styles/soundStyles.module.css'
 import { Helmet } from 'react-helmet';
 
 const SoundsPage = ({data}) => {
-    let isMobile =  window.innerWidth <= 768;
+    const isBrowser = typeof window !== "undefined";
+    let isMobile  = true;
+    if (isBrowser) {
+        isMobile =  window.innerWidth <= 768;
+    }
     console.log(data)
   return (
     <React.Fragment>
