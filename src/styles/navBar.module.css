@@ -1,7 +1,9 @@
 .nav-links {
     display: flex;
     list-style: none;
+    justify-content: space-around;
     padding-left: 0;
+    font-size: 16pt;
 }
 
 .nav-link-item {

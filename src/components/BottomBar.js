@@ -6,7 +6,7 @@ const BottomBar = () => {
         <div className={styles.bottomBar}>
             <div className={styles.bottomBarText}>
                 contact:
-                    <a className={styles.linkText} href="mailto:contact@whiteowlrecords.xyz"> contact@whiteowlrecords.xyz</a>
+                    <a className={styles.linkText} href="mailto:admin@whiteowlrecords.xyz"> admin@whiteowlrecords.xyz</a>
             </div>
         </div>
     )

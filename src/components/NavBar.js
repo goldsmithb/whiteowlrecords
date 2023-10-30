@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import * as styles from '../styles/navBar.module.css'
 
 const NavBar = ( { changePage } ) => {
