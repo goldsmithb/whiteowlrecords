@@ -8,7 +8,6 @@ const SoundsPage = ({data}) => {
     if (isBrowser) {
         isMobile =  window.innerWidth <= 768;
     }
-    console.log(data)
   return (
     <React.Fragment>
         <div className={styles.playersContainer}>
