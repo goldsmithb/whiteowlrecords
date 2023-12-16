@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import * as styles from '../styles/thoughtStyles.module.css'
-import PortableText from "react-portable-text"
-
+import {PortableText} from '@portabletext/react'
 
 const ThoughtsPage = () => {
     const data = useStaticQuery(graphql`
@@ -46,13 +45,14 @@ const ThoughtsPage = () => {
         {data.allSanityThoughtPost.nodes.map(post => (
                     <div className={styles.post}>
                         <h1 className={styles.title}>{post.title}</h1>
-                        {/* <SanityImage 
+                        {
+                        /* <SanityImage 
                             // alt={data.sanityThoughtPost.Image.}
                             asset={post.mainImage.asset}
                         /> */}
                         <div>{post.author.name} | {post.publishedAt}</div>
                         <PortableText
-                            content={post._rawBody}
+                            value={post._rawBody}
                         />
                     </div>
                 ))}
