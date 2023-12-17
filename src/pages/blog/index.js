@@ -43,14 +43,7 @@ query AllPostsAllKinds {
             url
           }
         }
-        teaser
-        categories {
-          title
-        }
         id
-        slug {
-          current
-        }
       }
     }
     allSanitySoundPost(sort: {publishedAt: DESC}) {
@@ -71,14 +64,7 @@ query AllPostsAllKinds {
             url
           }
         }
-        teaser
-        categories {
-          title
-        }
         id
-        slug {
-          current
-        }
       }
     }
   }
