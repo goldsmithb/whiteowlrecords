@@ -1,15 +1,78 @@
 import * as React from 'react'
 import ReactPlayer from "react-player"
+import { useStaticQuery, graphql } from 'gatsby'
+import { PortableText } from '@portabletext/react'
 import * as styles from '../styles/soundStyles.module.css'
 
-const SoundsPage = ({data}) => {
+const SoundsPage = () => {
     const isBrowser = typeof window !== "undefined";
     let isMobile  = true;
     if (isBrowser) {
         isMobile =  window.innerWidth <= 768;
     }
+
+    let postCount = 0;
+    const renderIframe = (iframeCode) => {
+        return { __html: iframeCode };
+    };
+    const renderReactPlayer = (url) => {
+        return <ReactPlayer 
+            controls={true}
+            url={url}/>
+    };
+
+    const data = useStaticQuery(graphql`
+    query {
+        allSanitySoundPost(sort: {publishedAt: DESC}) {
+            nodes {
+              title
+              publishedAt(formatString: "YYYY.MM.DD")
+              body {
+                children {
+                  text
+                }
+              }
+              author {
+                name
+              }
+              id
+              _rawBody
+              mainImage {
+                asset {
+                  altText
+                  url
+                }
+              }
+              hasAudioPlayer
+              soundCloudURL
+              bandCampIFrame
+            }
+          }
+        }
+    `);
+
+
+    console.log(data)
+
   return (
     <React.Fragment>
+        <div >
+        {data.allSanitySoundPost.nodes.map(post => (
+                    <div className={styles.post} id={"post_" + postCount}>
+                        <h1 className={styles.title}>{post.title}</h1>
+                        <div>{post.author.name} | {post.publishedAt}</div>
+                        <PortableText
+                            value={post._rawBody}
+                        />
+                        {post?.hasAudioPlayer === "Bandcamp" && (
+                            <div
+                                dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
+                        )}
+                        {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)
+                            }
+                    </div>
+                ))}
+        </div>
         <div className={styles.playersContainer}>
             <div className={styles.player}>
                 { isMobile ? (

@@ -8,7 +8,7 @@ const ThoughtsPage = () => {
 
     const data = useStaticQuery(graphql`
     query {
-        allSanityThoughtPost(sort: {publishedAt: DESC}) {
+        allSanitySoundPost(sort: {publishedAt: DESC}) {
             nodes {
               title
               publishedAt(formatString: "YYYY.MM.DD")
@@ -70,12 +70,6 @@ const ThoughtsPage = () => {
         {data.allSanityThoughtPost.nodes.map(post => (
                     <div className={styles.post} id={"post_" + postCount}>
                         <h1 className={styles.title}>{post.title}</h1>
-                        {
-                        /* <SanityImage 
-                            // alt={data.sanityThoughtPost.Image.}
-                            asset={post.mainImage.asset}
-                        /> */}
-                        {console.log(post)}
                         <div>{post.author.name} | {post.publishedAt}</div>
                         <PortableText
                             value={post._rawBody}
