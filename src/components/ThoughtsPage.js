@@ -8,7 +8,7 @@ const ThoughtsPage = () => {
 
     const data = useStaticQuery(graphql`
     query {
-        allSanitySoundPost(sort: {publishedAt: DESC}) {
+        allSanityThoughtPost(sort: {publishedAt: DESC}) {
             nodes {
               title
               publishedAt(formatString: "YYYY.MM.DD")
