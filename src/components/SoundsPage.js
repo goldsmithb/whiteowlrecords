@@ -32,9 +32,6 @@ const SoundsPage = () => {
                   text
                 }
               }
-              author {
-                name
-              }
               id
               _rawBody
               mainImage {
@@ -60,7 +57,7 @@ const SoundsPage = () => {
         {data.allSanitySoundPost.nodes.map(post => (
                     <div className={styles.post} id={"post_" + postCount}>
                         <h1 className={styles.title}>{post.title}</h1>
-                        <div>{post.author.name} | {post.publishedAt}</div>
+                        <div>{post.publishedAt}</div>
                         <PortableText
                             value={post._rawBody}
                         />

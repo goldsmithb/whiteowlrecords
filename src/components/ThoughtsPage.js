@@ -70,7 +70,7 @@ const ThoughtsPage = () => {
         {data.allSanityThoughtPost.nodes.map(post => (
                     <div className={styles.post} id={"post_" + postCount}>
                         <h1 className={styles.title}>{post.title}</h1>
-                        <div>{post.author.name} | {post.publishedAt}</div>
+                        <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
                         <PortableText
                             value={post._rawBody}
                         />
