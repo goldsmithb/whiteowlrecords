@@ -6,11 +6,19 @@ const NavBar = ( { changePage } ) => {
         <nav>
             <ul className={styles.navLinks}>
                  <li className={styles.navLinkItem}>
-                    <a className={styles.navLinkText} href="#" onClick={() => changePage("sounds")}>Sounds</a>
+                    <a className={styles.navLinkText} href="#" onClick={() => changePage("blog")}>Home</a>
                 </li>
-                <li className={styles.specialText}>|</li>
                 <li className={styles.navLinkItem}>
-                    <a className={styles.navLinkText} href="#" onClick={() => changePage("thoughts")}>Thoughts</a>
+                    <a className={styles.navLinkText} href="#" onClick={() => changePage("about")}>About</a>
+                </li>
+                <li className={styles.navLinkItem}>
+                    <a className={styles.navLinkText} href="https://whiteowlrecords.bandcamp.com/" target="_blank">Bandcamp</a>
+                </li>
+                <li className={styles.navLinkItem}>
+                    <a className={styles.navLinkText} href="https://soundcloud.com/whiteowlrecords" target="_blank">Sound Cloud</a>
+                </li>
+                <li className={styles.navLinkItem}>
+                    <a className={styles.navLinkText} href="https://www.instagram.com/whiteowl.records/" target="_blank">Instagram</a>
                 </li>
             </ul>
         </nav>

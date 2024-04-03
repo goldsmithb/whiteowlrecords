@@ -15,11 +15,13 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@animated-burgers/burger-arrow": "^1.1.2",
     "@mdx-js/react": "^2.3.0",
     "@portabletext/react": "^3.0.11",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.1.7",
     "@sanity/image-url": "^1.0.2",
+    "classnames": "^2.5.1",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-mdx": "^5.11.0",
@@ -30,10 +32,13 @@
     "gatsby-source-sanity": "^7.6.3",
     "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-player": "^2.12.0",
-    "react-portable-text": "^0.6.0"
+    "react-portable-text": "^0.6.0",
+    "react-router-dom": "^6.22.3",
+    "react-transition-group": "^4.4.5"
   }
 }

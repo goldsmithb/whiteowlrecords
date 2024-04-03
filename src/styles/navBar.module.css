@@ -1,5 +1,6 @@
 .nav-links {
     display: flex;
+    flex-direction: column;
     list-style: none;
     justify-content: space-around;
     padding-left: 0;
@@ -16,6 +17,7 @@
     text-decoration: none;
 }
 
+/* needed? */
 @media (max-width: 768px) {
     li {
         width: 28vw;
