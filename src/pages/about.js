@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from "gatsby";
 import { PortableText } from '@portabletext/react'
+import Layout from '../components/layout.js'
 
 const About = () => {
     const data = useStaticQuery(graphql`
@@ -12,9 +13,10 @@ const About = () => {
           }
         }
     `);
-        console.log(data)
     return (
-        <PortableText value={data.allSanityAboutPage.nodes[0]._rawBody} />
+        <Layout>
+            <PortableText value={data.allSanityAboutPage.nodes[0]._rawBody} />
+        </Layout>
     );
 }
 

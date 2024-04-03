@@ -1,15 +1,17 @@
 import * as React from 'react'
 import * as styles from '../styles/navBar.module.css'
+import { Link } from "gatsby"
 
-const NavBar = ( { changePage } ) => {
+const NavBar = () => {
+    console.log("navbar")
     return (
         <nav>
             <ul className={styles.navLinks}>
                  <li className={styles.navLinkItem}>
-                    <a className={styles.navLinkText} href="#" onClick={() => changePage("blog")}>Home</a>
+                    <Link to='/' className={styles.navLinkText}>Home</Link>
                 </li>
                 <li className={styles.navLinkItem}>
-                    <a className={styles.navLinkText} href="#" onClick={() => changePage("about")}>About</a>
+                    <Link to='/about' className={styles.navLinkText}>About</Link>
                 </li>
                 <li className={styles.navLinkItem}>
                     <a className={styles.navLinkText} href="https://whiteowlrecords.bandcamp.com/" target="_blank">Bandcamp</a>

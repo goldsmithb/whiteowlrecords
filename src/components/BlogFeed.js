@@ -3,6 +3,7 @@ import ReactPlayer from "react-player"
 import { useStaticQuery, graphql } from "gatsby";
 import * as styles from '../styles/thoughtStyles.module.css'
 import { PortableText } from '@portabletext/react'
+import BlogPost from './BlogPost';
 
 const BlogFeed = () => {
     const data = useStaticQuery(graphql`
@@ -43,26 +44,28 @@ const BlogFeed = () => {
     let postCount = 0;
     return (
         <div className={styles.container}>
-      <main>
-        <div >
-        {data.allSanityBlogPost.nodes.map(post => (
-                    <div className={styles.post} id={"post_" + postCount}>
-                        <h1 className={styles.title}>{post.title}</h1>
-                        <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
-                        <PortableText
-                            value={post._rawBody}
-                        />
-                        {post?.hasAudioPlayer === "Bandcamp" && (
-                            <div
-                                dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-                        )}
-                        {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)
-                            }
-                    </div>
-                ))}
+            <main>
+                <div >
+                    {data.allSanityBlogPost.nodes.map(post => (
+                        <BlogPost post={post} postCount={postCount++} />
+                                // <div className={styles.post} id={"post_" + postCount}>
+                                //     <h1 className={styles.title}>{post.title}</h1>
+                                //     <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
+                                //     <PortableText
+                                //         value={post._rawBody}
+                                //     />
+                                //     {post?.hasAudioPlayer === "Bandcamp" && (
+                                //         <div
+                                //             dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
+                                //     )}
+                                //     {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)
+                                //         }
+                                // </div>
+                        )
+                    )}
+                </div>
+            </main>
         </div>
-      </main>
-    </div>
   );
 }
 
