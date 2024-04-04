@@ -37,7 +37,12 @@
 }
 
 .player-container {
-    align-items: center;
+    width: 100%;
+}
+
+.player {
+    width: 580px;
+    margin: auto;
 }
 
 @media (max-width: 768px) {

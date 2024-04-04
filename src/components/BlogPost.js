@@ -9,10 +9,12 @@ const BlogPost = ({ post, postCount }) => {
     };
 
     const renderReactPlayer = (url) => {
-        return <ReactPlayer 
-            controls={true}
-            url={url}/>
+        return (
+                <ReactPlayer 
+                controls={true}
+                url={url}/>);
     };
+
     return (
         <div className={styles.post} id={"post_" + postCount}>
             <h1 className={styles.title}>{post.title}</h1>
@@ -21,11 +23,13 @@ const BlogPost = ({ post, postCount }) => {
                 <PortableText value={post._rawBody} />
             </div>
             <div className={styles.playerContainer}>
-                {post?.hasAudioPlayer === "Bandcamp" && (
-                    <div
-                        dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-                )}
-                {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+                <div className={styles.player}>
+                    {post?.hasAudioPlayer === "Bandcamp" && (
+                        <div
+                            dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
+                    )}
+                    {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+                </div>
             </div>
         </div>
   );
