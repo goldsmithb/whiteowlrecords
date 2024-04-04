@@ -1,3 +1,29 @@
+.site-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.left-col {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.middle-col {
+    flex: 1;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-col {
+    flex: 0 0 250px;
+}
+
 .container {
     margin: auto;
     max-width: 1000px;
@@ -5,6 +31,13 @@
 
 .heading {
     color: white;
+}
+
+.banner {
+    margin-left: -15%;
+    margin-right: -15%;
+    width: 130%;
+    pointer-events: none;
 }
 
 .site-title {

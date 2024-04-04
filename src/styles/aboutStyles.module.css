@@ -1,27 +1,33 @@
-.post {
+.container {
+    max-width: 1000px;
     border-style: solid;
-    margin: 10px;
+    margin-top: 50px;
     margin-bottom: 40px;
     padding: 25px;
     background-color: rgba(167, 167, 167, 0.18);
 }
 
-.post-body a:link{
+.container a:link{
     color: yellow;
 }
 
-.post-body a:visited {
+.container a:visited {
     color: orange;
 }
 
-.post-body a:active {
+.container a:active {
     color: rgb(255, 115, 0);
+}
+
+.container h1 {
+    font-weight: 300;
 }
 
 .title { 
     text-align: center;
-    font-weight: 300;
+    font-weight: 00;
 }
+
 
 .heading {
     color: black;
@@ -34,10 +40,6 @@
 
 .email-text {
     color: rgb(from color .097, .214, .450);
-}
-
-.player-container {
-    align-items: center;
 }
 
 @media (max-width: 768px) {

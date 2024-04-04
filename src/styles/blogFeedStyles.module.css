@@ -1,0 +1,21 @@
+.title {
+    text-align: center;
+}
+
+.container {
+    margin: auto;
+    max-width: 1000px;
+}
+
+.heading {
+    color: black;
+}
+
+.banner {
+    width: 90vw;
+    height: 20vh;
+}
+
+.email-text {
+    color: rgb(from color .097, .214, .450);
+}

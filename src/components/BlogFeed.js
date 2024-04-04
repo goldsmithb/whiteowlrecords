@@ -1,8 +1,6 @@
 import * as React from 'react'
-import ReactPlayer from "react-player"
 import { useStaticQuery, graphql } from "gatsby";
-import * as styles from '../styles/thoughtStyles.module.css'
-import { PortableText } from '@portabletext/react'
+import * as styles from '../styles/blogFeedStyles.module.css'
 import BlogPost from './BlogPost';
 
 const BlogFeed = () => {
@@ -30,16 +28,6 @@ const BlogFeed = () => {
           }
         }
     `);
-
-    const renderIframe = (iframeCode) => {
-        return { __html: iframeCode };
-    };
-
-    const renderReactPlayer = (url) => {
-        return <ReactPlayer 
-            controls={true}
-            url={url}/>
-    };
 
     let postCount = 0;
     return (

@@ -20,12 +20,13 @@ const BlogPost = ({ post, postCount }) => {
             <div className={styles.postBody}>
                 <PortableText value={post._rawBody} />
             </div>
-            {post?.hasAudioPlayer === "Bandcamp" && (
-                <div
-                    dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-            )}
-            {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)
-                }
+            <div className={styles.playerContainer}>
+                {post?.hasAudioPlayer === "Bandcamp" && (
+                    <div
+                        dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
+                )}
+                {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+            </div>
         </div>
   );
 }
