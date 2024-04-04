@@ -5,6 +5,21 @@ import { Link } from "gatsby"
 const NavBar = ({show}) => {
     console.log("navBar!")
     return (
+        <>
+        <style>
+            {
+                `.slider {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                    transition: transform 0.5s, opacity 1s ease;
+                }
+
+                .slide-in {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            `}
+            </style>
         <div className={`slider ${show ? 'slide-in' : ''}`}>
             <nav>
                 <ul className={styles.navLinks}>
@@ -29,6 +44,7 @@ const NavBar = ({show}) => {
                 </ul>
             </nav>
         </div>
+        </>
     )
 }
 
