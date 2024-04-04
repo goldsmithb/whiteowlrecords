@@ -17,17 +17,6 @@
     text-decoration: none;
 }
 
-.slider {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.slide-in {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 /* needed? */
 @media (max-width: 768px) {
     li {

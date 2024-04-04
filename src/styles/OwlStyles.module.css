@@ -1,0 +1,30 @@
+.overlay {
+    position: fixed;
+    top: -50%;
+    left: 0;
+ 
+    background: rgba(0, 0, 0, 0.5); /* This adds a semi-transparent background, adjust as needed */
+    z-index: 900; /* This ensures the overlay is above everything else */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.centered-content {
+    max-width: 100%; /* Adjust as needed */
+    max-height: 100%; /* Adjust as needed */
+  }
+
+.fade-out {
+    opacity: 0; /* Set opacity to 0 to fade out */
+}
+
+.centered-image {
+    display: block;
+    width: 135%;
+    height: 135%;
+    /* object-fit: contain; This ensures the image scales while maintaining its aspect ratio   */
+    margin: 0 auto;
+    z-index: 9999; /* This ensures the overlay is above everything else */
+}
