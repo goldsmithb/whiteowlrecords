@@ -1,0 +1,9 @@
+.site-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.top-bar {
+    /* border: solid;  */
+}

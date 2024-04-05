@@ -21,7 +21,9 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.1.7",
     "@sanity/image-url": "^1.0.2",
+    "@uidotdev/usehooks": "^2.4.1",
     "classnames": "^2.5.1",
+    "framer-motion": "^11.0.25",
     "gatsby": "^5.11.0",
     "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-image": "^3.11.0",
@@ -39,6 +41,7 @@
     "react-helmet": "^6.1.0",
     "react-player": "^2.12.0",
     "react-portable-text": "^0.6.0",
+    "react-responsive": "^10.0.0",
     "react-router-dom": "^6.22.3",
     "react-transition-group": "^4.4.5"
   }
