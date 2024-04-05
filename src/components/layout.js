@@ -37,8 +37,8 @@ const Layout = ({ showBanner, children }) => {
         </div>
 
         <div className={styles.rightCol}>
-            <BottomBar />
         </div>
+        <BottomBar />
     </div>
     )
 }

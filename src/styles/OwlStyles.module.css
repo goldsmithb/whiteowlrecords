@@ -3,7 +3,7 @@
     top: -50%;
     left: 0;
  
-    background: rgba(0, 0, 0, 0.5); /* This adds a semi-transparent background, adjust as needed */
+    background: rgba(0, 0, 0, 0.7); /* This adds a semi-transparent background, adjust as needed */
     z-index: 900; /* This ensures the overlay is above everything else */
     display: flex;
     justify-content: center;

@@ -12,6 +12,24 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
+    {
+        resolve: `gatsby-plugin-google-gtag`,
+        options: {
+            trackingIds: [
+                'G-XXES8TFKCR', // Google Analytics / GA
+            ],
+            gtagConfig: {
+                // IP anonymization for GDPR compliance
+                anonymize_ip: true,
+            },
+            pluginConfig: { 
+                // Puts tracking script in the head instead of the body
+                head: true,
+                // Disable analytics for users with Do Not Track enabled
+                respectDNT: true,
+            },
+        },
+    },
       "gatsby-plugin-image",
       "gatsby-plugin-sharp",
       {
@@ -45,6 +63,6 @@ module.exports = {
           projectId: "4xbrcs0m",
           dataset: "production",
         },
-      }
+      },
   ],
 }
