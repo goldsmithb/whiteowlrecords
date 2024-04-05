@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 import * as styles from '../styles/layout.module.css'
@@ -7,10 +7,13 @@ import HamburgerMenu from '../components/HamburgerMenu.js'
 import Owl from '../components/Owl.js'
 
 const Layout = ({ showBanner, children }) => {
-    const val = sessionStorage.getItem('hasOwlBeenShown');
-    let hasOwlBeenShown = val === "true" ? true : false;
-    // show the owl if it has not yet been shown
-    const [showOwl, setShowOwl] = useState(!hasOwlBeenShown);
+    useEffect(() => {
+        const val = sessionStorage.getItem('hasOwlBeenShown');
+        let hasOwlBeenShown = val === "true" ? true : false;
+        // show the owl if it has not yet been shown
+        setShowOwl(!hasOwlBeenShown);
+    }, []);
+    const [showOwl, setShowOwl] = useState(true);
 
     return (
     <div className={styles.siteWrap}>
