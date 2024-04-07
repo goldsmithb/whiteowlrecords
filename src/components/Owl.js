@@ -24,8 +24,12 @@ const Owl = ({ setShowOwl }) => {
                 src={"../images/BIGOWL.png"}
                 className={styles.centeredImage}
             />
+            <div className={styles.textBoxOverlay}>
+                <div className={styles.textBox}>
+                    ENTER
+                </div>
+            </div>
         </div>
-        
     );
 };
 
