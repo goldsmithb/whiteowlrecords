@@ -20,9 +20,11 @@
     max-height: 100%; /* Adjust as needed */
   }
 
+
+/* for css fade out
 .fade-out {
-    opacity: 0; /* Set opacity to 0 to fade out */
-}
+    opacity: 0;
+} */
 
 .centered-image {
     display: block;

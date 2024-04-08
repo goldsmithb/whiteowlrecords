@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image'
 import * as styles from '../styles/owlStyles.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
-// const NavBar = ({ show, isMobile }) => {
-//     let i = 0;
-//     const container = {
-//         hidden: { opacity: 0 },
-//         show: {
-//           opacity: 1,
-//           transition: {
-//             staggerChildren: 0.05
-//           }
-//         }
-//       };
-      
-//       const listItem = {
-//         hidden: { opacity: 0, x: 200 },
-//         show: { opacity: 1, x: 0 }
-//       };
 const Owl = ({ showOwl, setShowOwl, isMobile }) => {
-    const [fadeOut, setFadeOut] = useState(false);
+    // const [fadeOut, setFadeOut] = useState(false); // for css fade out
 
     const closeModal = () => {
+        sessionStorage.setItem('hasOwlBeenShown', true);
         setShowOwl(false);
+
+        // if framer motion animation is not working, we can still use
+        // the old method of timed css transitions. Not ideal, but may be
+        // needed in FireFox. In such a case, use following as outer div:
+        // <div className={`${styles.overlay} + ${fadeOut ? styles.fadeOut : ''}`}
         // setTimeout(() => {
         //     sessionStorage.setItem('hasOwlBeenShown', true);
         //     setShowOwl(false);
@@ -32,44 +22,33 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 
     };
 
+    if (isMobile) {
+        return (<div>mobile owl</div>);
+    }
+
     return (
         <AnimatePresence>
-            {/* <div className={`${styles.overlay} + ${fadeOut ? styles.fadeOut : ''}`}  */}
+            {/*   */}
             { showOwl &&
-            <motion.div    
-                // key="modal"
-                className={styles.overlay}  
-                exit={{ opacity: 0 }} // Animation when component leaves DOM
-                onClick={closeModal}>
-            
-                <StaticImage 
-                    alt="Big Owl pop up"
-                    src={"../images/BIGOWL.png"}
-                    className={styles.centeredImage}
-                />
-                <div className={styles.textBoxOverlay}>
-                    <div className={styles.textBox}>
-                        ENTER
+                <motion.div    
+                    // key="modal"
+                    className={styles.overlay}  
+                    exit={{ opacity: 0 }} // Animation when component leaves DOM
+                    onClick={closeModal}>
+                
+                    <StaticImage 
+                        alt="Big Owl pop up"
+                        src={"../images/BIGOWL.png"}
+                        className={styles.centeredImage}
+                    />
+                    <div className={styles.textBoxOverlay}>
+                        <div className={styles.textBox}>
+                            ENTER
+                        </div>
                     </div>
-                </div>
-            
-            </motion.div>}
+                </motion.div>}
         </AnimatePresence>
     );
 }
 
-{/* 
-                <StaticImage 
-                    alt="Big Owl pop up"
-                    src={"../images/BIGOWL.png"}
-                    className={styles.centeredImage}
-                />
-                <div className={styles.textBoxOverlay}>
-                    <div className={styles.textBox}>
-                        ENTER
-                    </div>
-                </div> */}
-
-            {/* </div>  */}
-        
 export default Owl;

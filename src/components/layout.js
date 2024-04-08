@@ -6,7 +6,7 @@ import HamburgerMenu from '../components/HamburgerMenu.js'
 import Owl from '../components/Owl.js'
 
 const Layout = ({ showBanner, children }) => {
-    const [showOwl, setShowOwl] = useState(true);
+    const [showOwl, setShowOwl] = useState(false);
 
     useEffect(() => {
         const val = sessionStorage.getItem('hasOwlBeenShown');
