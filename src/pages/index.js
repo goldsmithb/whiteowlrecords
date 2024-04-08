@@ -7,9 +7,14 @@ import Layout from '../components/layout.js'
 import MobileLayout from '../components/MobileLayout.js'
 
 const IndexPage = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const isBrowser = () => typeof window !== "undefined"
+    const [width, setWidth] = useState(isBrowser() ? window.innerWidth : null);
 
     useEffect(() => {
+        if (!isBrowser()) {
+            return;
+        }
+        
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
@@ -17,7 +22,9 @@ const IndexPage = () => {
     }, []);
 
     function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
+        if (isBrowser()) {
+            setWidth(window.innerWidth);
+        }
     }
 
     const isMobile = width <= 768;
@@ -25,6 +32,9 @@ const IndexPage = () => {
     if (isMobile) {
         return (
             <div>
+                <Helmet>
+                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+                </Helmet>
                 <MobileLayout>
                     <BlogFeed />
                 </MobileLayout>

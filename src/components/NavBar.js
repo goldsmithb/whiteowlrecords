@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from '../styles/navBar.module.css'
 import { Link } from "gatsby"
-import { AnimatePresence, motion, staggerChildren } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const NavBar = ({ show, isMobile }) => {
     let i = 0;
@@ -24,7 +24,7 @@ const NavBar = ({ show, isMobile }) => {
         <AnimatePresence>
         <motion.div variants={container} initial='hidden' animate='show'>
             <nav>
-                <ul className={styles.navLinks}>
+                <ul className={styles.navLinksMobile}>
                     <motion.li variants={listItem} className={styles.navLinkItem} key={i++}>
                         <Link to='/' className={styles.navLinkText}>Home</Link>
                     </motion.li>

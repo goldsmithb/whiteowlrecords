@@ -2,6 +2,7 @@ import * as React from 'react'
 import NavBar from '../components/NavBar.js'
 import Hamburger from 'hamburger-react'
 import { useClickAway } from '@uidotdev/usehooks'
+import * as styles from '../styles/HamburgerMenuStyles.module.css'
 // burger options: https://hamburger-react.netlify.app/
 
 const HamburgerMenu = ({ isMobile }) => {
@@ -14,7 +15,11 @@ const HamburgerMenu = ({ isMobile }) => {
     if (isMobile) {
         return (
             <div>
-                <Hamburger direction="right" toggled={burgerOpen} toggle={setBurgerOpen}/>
+                <Hamburger 
+                direction="right" 
+                toggled={burgerOpen} 
+                toggle={setBurgerOpen}
+                className={styles.mobileContainer}/>
                 {burgerOpen && <NavBar isMobile={true} />}
             </div>
         );

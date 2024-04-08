@@ -19,7 +19,7 @@ const Layout = ({ showBanner, children }) => {
     return (
     <div className={styles.siteWrap}>
 
-        {showOwl && <Owl setShowOwl={setShowOwl} />}
+        <Owl showOwl={showOwl} setShowOwl={setShowOwl} />
 
         <div className={styles.leftCol}>
             <HamburgerMenu />
