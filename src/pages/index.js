@@ -14,7 +14,7 @@ const IndexPage = () => {
         if (!isBrowser()) {
             return;
         }
-        
+
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
@@ -35,7 +35,7 @@ const IndexPage = () => {
                 <Helmet>
                     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
                 </Helmet>
-                <MobileLayout>
+                <MobileLayout showBanner={true}>
                     <BlogFeed />
                 </MobileLayout>
             </div>
