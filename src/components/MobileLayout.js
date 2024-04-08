@@ -7,13 +7,22 @@ import HamburgerMenu from '../components/HamburgerMenu.js'
 import Owl from '../components/Owl.js'
 
 const MobileLayout = ({ children }) => {
+    const [showOwl, setShowOwl] = useState(false);
 
+    useEffect(() => {
+        const val = sessionStorage.getItem('hasOwlBeenShown');
+        let hasOwlBeenShown = val === "true" ? true : false;
+        // show the owl if it has not yet been shown
+        setShowOwl(!hasOwlBeenShown);
+    }, []);
+    
     return (
         <div className={styles.siteWrap}>
-
+            
+            <Owl showOwl={showOwl} setShowOwl={setShowOwl} isMobile={true} />
+            
             <div className={styles.topBar}>
                 <HamburgerMenu isMobile={true}/>
-                
             </div>
             {children}
         </div>
