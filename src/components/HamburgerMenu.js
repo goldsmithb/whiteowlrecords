@@ -8,14 +8,14 @@ import * as styles from '../styles/HamburgerMenuStyles.module.css'
 const HamburgerMenu = ({ isMobile }) => {
     const [burgerOpen, setBurgerOpen] = React.useState(false);
     
-    // click away to close menu
+    // TODO : click away to close menu
     const ref = useClickAway(() => {
         setBurgerOpen(false);
     });
 
     if (isMobile) {
         return (
-            <div className={styles.menuWrapperMobile}>
+            <div className={styles.menuWrapperMobile} ref={ref} >
                 <Hamburger 
                 direction="right" 
                 toggled={burgerOpen} 

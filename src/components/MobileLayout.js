@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
-import { Helmet } from 'react-helmet'
 import * as styles from '../styles/mobileLayout.module.css'
-import BottomBar from './BottomBar.js'
 import Banner from '../components/Banner.js'
 import HamburgerMenu from '../components/HamburgerMenu.js'
 import Owl from '../components/Owl.js'
