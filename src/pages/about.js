@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { PortableText } from '@portabletext/react'
 import Layout from '../components/layout.js'
 import MobileLayout from '../components/MobileLayout.js'
+import BottomBar from '../components/BottomBar.js'
 import * as styles from '../styles/aboutStyles.module.css'
 import VariableContext from '../context/VariableProvider.js';
 
@@ -22,8 +23,9 @@ const About = () => {
         return (
             <MobileLayout>
                 <div className={styles.Mobile}>
-                <PortableText value={data.allSanityAboutPage.nodes[0]._rawBody} />
-            </div>
+                    <PortableText value={data.allSanityAboutPage.nodes[0]._rawBody} />
+                </div>
+                <BottomBar isMobile={true} />
             </MobileLayout>
         )
     }

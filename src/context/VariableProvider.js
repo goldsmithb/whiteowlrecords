@@ -28,10 +28,6 @@ export const VariableProvider = ({ children }) => {
         }
     }
 
-
-
-    console.log(" conrtext leagy outou aseildfj lijs " + width);
-
     return (
         <VariableContext.Provider value={{ isMobile: (width <= 768) }}>
             {children}
