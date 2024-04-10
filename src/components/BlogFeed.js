@@ -36,7 +36,7 @@ const BlogFeed = ({ isMobile }) => {
                 <main>
                     <div>
                         {data.allSanityBlogPost.nodes.map(post => (
-                            <BlogPost post={post} postCount={postCount++} isMobile={true} />
+                            <BlogPost post={post} postCount={postCount} isMobile={true} key={postCount++}/>
                             )
                         )}
                     </div>
@@ -50,7 +50,7 @@ const BlogFeed = ({ isMobile }) => {
             <main>
                 <div>
                     {data.allSanityBlogPost.nodes.map(post => (
-                        <BlogPost post={post} postCount={postCount++} />
+                        <BlogPost post={post} postCount={postCount} key={postCount++} />
                         )
                     )}
                 </div>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import NavBar from '../components/NavBar.js'
 import Hamburger from 'hamburger-react'
 import { useClickAway } from '@uidotdev/usehooks'
@@ -8,6 +8,7 @@ import * as styles from '../styles/HamburgerMenuStyles.module.css'
 const HamburgerMenu = ({ isMobile }) => {
     const [burgerOpen, setBurgerOpen] = React.useState(false);
     
+    // click away to close menu
     const ref = useClickAway(() => {
         setBurgerOpen(false);
     });
@@ -21,7 +22,7 @@ const HamburgerMenu = ({ isMobile }) => {
                 toggle={setBurgerOpen}
                 className={styles.burgerWrapperMobile} />
 
-                {burgerOpen && <NavBar isMobile={true} />}
+                <NavBar show={burgerOpen} isMobile={true} />
             </div>
         );
     }

@@ -4,18 +4,14 @@ import * as styles from '../styles/blogPostStyles.module.css'
 import { PortableText } from '@portabletext/react'
 
 const fixIframeWidth = (iframeCode) => {
-    console.log("RENDER I FRRAME")
-    console.log(iframeCode)
     let widthPos = iframeCode.search("width: ");
-    console.log (iframeCode.substring(widthPos));
     let pxPos = iframeCode.substring(widthPos).search("px");
     // the "px" substring should appear within 10 characters of the position of
     // substring "width"; if not, we will not edit the HTML and just render
-    // what was recieved from the CMS.
+    // what was recieved from the
     if (pxPos > 14) { 
         return iframeCode }
     pxPos += widthPos;
-    console.log(widthPos, pxPos)
 
     return iframeCode.substring(0, widthPos + 7) + "100%" + iframeCode.substring(pxPos + 2);
 }
