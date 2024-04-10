@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import * as styles from '../styles/blogFeedStyles.module.css'
 import BlogPost from './BlogPost';
 
-const BlogFeed = () => {
+const BlogFeed = ({ isMobile }) => {
     const data = useStaticQuery(graphql`
     query {
         allSanityBlogPost(sort: {publishedAt: DESC}) {
@@ -28,33 +28,35 @@ const BlogFeed = () => {
           }
         }
     `);
-
     let postCount = 0;
+
+    if (isMobile) {
+        return (
+            <div className={styles.containerMobile}>
+                <main>
+                    <div>
+                        {data.allSanityBlogPost.nodes.map(post => (
+                            <BlogPost post={post} postCount={postCount++} isMobile={true} />
+                            )
+                        )}
+                    </div>
+                </main>
+            </div>
+        );
+    }
+
     return (
         <div className={styles.container}>
             <main>
-                <div >
+                <div>
                     {data.allSanityBlogPost.nodes.map(post => (
                         <BlogPost post={post} postCount={postCount++} />
-                                // <div className={styles.post} id={"post_" + postCount}>
-                                //     <h1 className={styles.title}>{post.title}</h1>
-                                //     <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
-                                //     <PortableText
-                                //         value={post._rawBody}
-                                //     />
-                                //     {post?.hasAudioPlayer === "Bandcamp" && (
-                                //         <div
-                                //             dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-                                //     )}
-                                //     {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)
-                                //         }
-                                // </div>
                         )
                     )}
                 </div>
             </main>
         </div>
-  );
+    );
 }
 
 export default BlogFeed

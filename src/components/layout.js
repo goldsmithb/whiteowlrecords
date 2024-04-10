@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 import * as styles from '../styles/layout.module.css'
 import BottomBar from './BottomBar.js'
 import HamburgerMenu from '../components/HamburgerMenu.js'
@@ -26,14 +25,6 @@ const Layout = ({ showBanner, children }) => {
         </div>
 
         <div className={styles.middleCol}>
-            {showBanner &&
-                <div className={styles.banner}>
-                    <StaticImage 
-                        alt="WHITEOWLRECORDS banner"
-                        src={"../images/banner.png"}
-                    />
-                </div>
-            }
             {children}
         </div>
 

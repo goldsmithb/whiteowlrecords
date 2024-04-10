@@ -14,14 +14,15 @@ const HamburgerMenu = ({ isMobile }) => {
 
     if (isMobile) {
         return (
-            <>
+            <div className={styles.menuWrapperMobile}>
                 <Hamburger 
                 direction="right" 
                 toggled={burgerOpen} 
                 toggle={setBurgerOpen}
-                className={styles.mobileContainer}/>
+                className={styles.burgerWrapperMobile} />
+
                 {burgerOpen && <NavBar isMobile={true} />}
-            </>
+            </div>
         );
     }
 

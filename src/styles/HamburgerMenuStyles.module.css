@@ -1,4 +1,13 @@
-.mobile-container {
+.menu-wrapper-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.buregr-wrapper-mobile {
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
+    align-items: flex-end;
 }

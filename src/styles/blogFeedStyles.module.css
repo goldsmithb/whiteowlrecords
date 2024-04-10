@@ -19,3 +19,9 @@
 .email-text {
     color: rgb(from color .097, .214, .450);
 }
+
+
+/* Mobile Styles */
+.container-mobile {
+    width: 100%;
+}

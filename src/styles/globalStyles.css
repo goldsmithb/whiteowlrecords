@@ -7,3 +7,7 @@ body {
     /* background-image: url('../images/CREAM.jpg'); */
     background-image: url('../images/NAVY.jpg');
 }
+
+iframe {
+    width: 100%;
+}
