@@ -4,6 +4,7 @@
     margin-bottom: 40px;
     padding: 25px;
     background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
 }
 
 .post-body a:link{
@@ -45,16 +46,24 @@
     margin: auto;
 }
 
-
-
 /* Mobile Styles */
 .player-mobile {
     width: 100%;
 }
+
 .container-mobile {
     width: 100%;
 }
 
-iframe {
-    width: 100%;
+.post-mobile {
+    border-style: solid;
+    margin: 10px;
+    margin-bottom: 40px;
+    padding: 25px 5px 25px 5px;
+    background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
+}
+
+.post-mobile h1 {
+    letter-spacing: -1px;
 }

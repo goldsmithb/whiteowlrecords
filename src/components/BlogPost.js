@@ -32,7 +32,7 @@ const BlogPost = ({ post, postCount, isMobile }) => {
 
     if (isMobile) {
         return (
-            <div className={styles.post} id={"post_" + postCount}>
+            <div className={styles.postMobile} id={"post_" + postCount}>
                 <h1 className={styles.title}>{post.title}</h1>
                 <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
                 <div className={styles.postBody}>

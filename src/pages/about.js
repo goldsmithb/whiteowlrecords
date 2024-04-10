@@ -1,10 +1,13 @@
-import * as React from 'react'
+import React, { useContext } from 'react'
 import { useStaticQuery, graphql } from "gatsby";
 import { PortableText } from '@portabletext/react'
 import Layout from '../components/layout.js'
+import MobileLayout from '../components/MobileLayout.js'
 import * as styles from '../styles/aboutStyles.module.css'
+import VariableContext from '../context/VariableProvider.js';
 
 const About = () => {
+    const { isMobile } = useContext(VariableContext);
     const data = useStaticQuery(graphql`
     query {
         allSanityAboutPage {
@@ -14,6 +17,16 @@ const About = () => {
           }
         }
     `);
+
+    if (isMobile) {
+        return (
+            <MobileLayout>
+                <div className={styles.Mobile}>
+                <PortableText value={data.allSanityAboutPage.nodes[0]._rawBody} />
+            </div>
+            </MobileLayout>
+        )
+    }
     return (
         <Layout>
             <div className={styles.container}>
