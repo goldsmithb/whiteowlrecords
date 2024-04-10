@@ -9,8 +9,10 @@ const fixIframeWidth = (iframeCode) => {
     let widthPos = iframeCode.search("width: ");
     console.log (iframeCode.substring(widthPos));
     let pxPos = iframeCode.substring(widthPos).search("px");
+    // the "px" substring should appear within 10 characters of the position of
+    // substring "width"; if not, we will not edit the HTML and just render
+    // what was recieved from the CMS.
     if (pxPos > 14) { 
-        console.log("NOOOOPE") // wait for sanity to propogate
         return iframeCode }
     pxPos += widthPos;
     console.log(widthPos, pxPos)

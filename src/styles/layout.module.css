@@ -5,23 +5,24 @@
 }
 
 .left-col {
-    flex: 0 0 220px;
+    flex: 1 1 0;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 .middle-col {
-    flex: 1;
-    max-width: 1000px;
-
+    flex: 1 8 auto;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .right-col {
-    flex: 0 0 250px;
+    flex: 1 1 0;
+    width: 20vw;
 }
 
 .container {
