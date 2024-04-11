@@ -1,10 +1,10 @@
 .container {
     max-width: 1000px;
     border-style: solid;
-    margin-top: 50px;
-    margin-bottom: 40px;
+    margin: 50px auto 40px auto;
     padding: 25px;
     background-color: rgba(167, 167, 167, 0.18);
+    font-weight: 300;
 }
 
 .container a:link{
@@ -40,6 +40,21 @@
 
 .email-text {
     color: rgb(from color .097, .214, .450);
+}
+
+
+/*************    Mobile Styles ****************/
+.post-mobile {
+    border-style: solid;
+    margin: 10px;
+    margin-bottom: 40px;
+    padding: 25px 5px 25px 5px;
+    background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
+}
+
+.post-mobile h1 {
+    letter-spacing: -1px;
 }
 
 

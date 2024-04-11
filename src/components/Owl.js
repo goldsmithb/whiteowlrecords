@@ -10,64 +10,64 @@
         // setFadeOut(true);
 */
 
-import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image'
-import * as styles from '../styles/owlStyles.module.css'
-import { AnimatePresence, motion } from 'framer-motion'
+import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import * as styles from "../styles/owlStyles.module.css";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Owl = ({ showOwl, setShowOwl, isMobile }) => {
-    // const [fadeOut, setFadeOut] = useState(false); // for css fade out
+	// const [fadeOut, setFadeOut] = useState(false); // for css fade out
 
-    const closeModal = () => {
-        sessionStorage.setItem('hasOwlBeenShown', true);
-        setShowOwl(false);
-    };
+	const closeModal = () => {
+		sessionStorage.setItem("hasOwlBeenShown", true);
+		setShowOwl(false);
+	};
 
-    if (isMobile) {
-        return (
-            <AnimatePresence>
-            { showOwl &&
+	if (isMobile) {
+		return (
+			<AnimatePresence>
+				{ showOwl &&
                 <motion.div    
-                    key="modal"
-                    className={`${styles.overlay} ${styles.mobile}`}  
-                    exit={{ opacity: 0 }} // Animation when component leaves DOM
-                    onClick={closeModal}>
+                	key="modal"
+                	className={`${styles.overlay} ${styles.mobile}`}  
+                	exit={{ opacity: 0 }} // Animation when component leaves DOM
+                	onClick={closeModal}>
                 
-                    <StaticImage 
-                        alt="Big Owl pop up"
-                        src={"../images/BIGOWL.png"}
-                        className={`${styles.centeredImage} ${styles.mobile}`} 
-                    />
-                    <div className={styles.textBox}>
+                	<StaticImage 
+                		alt="Big Owl pop up"
+                		src={"../images/BIGOWL.png"}
+                		className={`${styles.centeredImage} ${styles.mobile}`} 
+                	/>
+                	<div className={styles.textBox}>
                         ENTER
-                    </div>  
+                	</div>  
                 </motion.div>}
-            </AnimatePresence>
-        );
-    }
+			</AnimatePresence>
+		);
+	}
 
-    return (
-        <AnimatePresence>
-            { showOwl &&
+	return (
+		<AnimatePresence>
+			{ showOwl &&
                 <motion.div    
-                    // key="modal"
-                    className={styles.overlay}
-                    exit={{ opacity: 0 }} // Animation when component leaves DOM
-                    onClick={closeModal}>
+                	// key="modal"
+                	className={styles.overlay}
+                	exit={{ opacity: 0 }} // Animation when component leaves DOM
+                	onClick={closeModal}>
                 
-                    <StaticImage 
-                        alt="Big Owl pop up"
-                        src={"../images/BIGOWL.png"}
-                        className={styles.centeredImage}
-                    />
-                    <div className={styles.textBoxOverlay}>
-                        <div className={styles.textBox}>
+                	<StaticImage 
+                		alt="Big Owl pop up"
+                		src={"../images/BIGOWL.png"}
+                		className={styles.centeredImage}
+                	/>
+                	<div className={styles.textBoxOverlay}>
+                		<div className={styles.textBox}>
                             ENTER
-                        </div>
-                    </div>
+                		</div>
+                	</div>
                 </motion.div>}
-        </AnimatePresence>
-    );
-}
+		</AnimatePresence>
+	);
+};
 
 export default Owl;

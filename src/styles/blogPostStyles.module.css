@@ -21,7 +21,7 @@
 
 .title { 
     text-align: center;
-    font-weight: 300;
+    /* font-weight: 300; */
 }
 
 .heading {
@@ -44,22 +44,27 @@
 .player {
     width: 580px;
     margin: auto;
+    padding-top: 20px;
 }
 
-/* Mobile Styles */
-.player-mobile {
-    width: 100%;
-}
+/*************    Mobile Styles ****************/
 
 .container-mobile {
     width: 100%;
+}
+
+.player-mobile {
+    padding-top: 10px;
+    max-width: 350px;
+    margin: auto;
+    padding: 0 10px 0 10px;
 }
 
 .post-mobile {
     border-style: solid;
     margin: 10px;
     margin-bottom: 40px;
-    padding: 25px 5px 25px 5px;
+    padding: 25px 5px 25px 10px;
     background-color: rgba(167, 167, 167, 0.18);
     word-wrap: break-word;
 }

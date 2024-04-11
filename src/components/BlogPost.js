@@ -1,72 +1,62 @@
-import React from 'react'
-import ReactPlayer from "react-player"
-import * as styles from '../styles/blogPostStyles.module.css'
-import { PortableText } from '@portabletext/react'
-
-const fixIframeWidth = (iframeCode) => {
-    let widthPos = iframeCode.search("width: ");
-    let pxPos = iframeCode.substring(widthPos).search("px");
-    // the "px" substring should appear within 10 characters of the position of
-    // substring "width"; if not, we will not edit the HTML and just render
-    // what was recieved from the
-    if (pxPos > 14) { 
-        return iframeCode }
-    pxPos += widthPos;
-
-    return iframeCode.substring(0, widthPos + 7) + "100%" + iframeCode.substring(pxPos + 2);
-}
+import React from "react";
+import ReactPlayer from "react-player";
+import * as styles from "../styles/blogPostStyles.module.css";
+import { PortableText } from "@portabletext/react";
+import { fixIframeWidth } from "../utils.js";
 
 const BlogPost = ({ post, postCount, isMobile }) => {
-    const renderIframe = (iframeCode) => {
-        return { __html: fixIframeWidth(iframeCode) };
-    };
+	const renderIframe = (iframeCode) => {
+		return { __html: iframeCode };
+	};
 
-    const renderReactPlayer = (url) => {
-        return (
-                <ReactPlayer 
-                controls={true}
-                url={url}/>);
-    };
+	const renderReactPlayer = (url) => {
+		return (
+			<ReactPlayer 
+				controls={true}
+				url={url}/>);
+	};
 
-    if (isMobile) {
-        return (
-            <div className={styles.postMobile} id={"post_" + postCount}>
-                <h1 className={styles.title}>{post.title}</h1>
-                <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
-                <div className={styles.postBody}>
-                    <PortableText value={post._rawBody} />
-                </div>
-                <div className={styles.playerContainer}>
-                    <div className={styles.playerMobile}>
-                        {post?.hasAudioPlayer === "Bandcamp" && (
-                            <div
-                                dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-                        )}
-                        {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
-                    </div>
-                </div>
-            </div>
-      );
-    }
+	if (isMobile) {
+		return (
+			<div className={styles.postMobile} id={"post_" + postCount}>
+				<h1 className={styles.title}>{post.title}</h1>
+				<div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
+				<div className={styles.postBody}>
+					{console.log(post?.bandCampIFrameBrowser)
+					/* TODO: we need to render images too. see: https://www.sanity.io/answers/how-do-i-render-the-image-in-sanity-blockcontent-p1606357402185800 */}
+					<PortableText value={post._rawBody} />
+				</div>
+				<div className={styles.playerContainer}>
+					<div className={styles.playerMobile}>
+						{post?.hasAudioPlayer === "Bandcamp" && (
+							<div
+								dangerouslySetInnerHTML={renderIframe(fixIframeWidth(post?.bandCampIFrameMobile))} />
+						)}
+						{post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+					</div>
+				</div>
+			</div>
+		);
+	}
 
-    return (
-        <div className={styles.post} id={"post_" + postCount}>
-            <h1 className={styles.title}>{post.title}</h1>
-            <div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
-            <div className={styles.postBody}>
-                <PortableText value={post._rawBody} />
-            </div>
-            <div className={styles.playerContainer}>
-                <div className={styles.player}>
-                    {post?.hasAudioPlayer === "Bandcamp" && (
-                        <div
-                            dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrame)} />
-                    )}
-                    {post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
-                </div>
-            </div>
-        </div>
-  );
-}
+	return (
+		<div className={styles.post} id={"post_" + postCount}>
+			<h1 className={styles.title}>{post.title}</h1>
+			<div>{post?.author ? post.author.name + " |" : "" } {post.publishedAt}</div>
+			<div className={styles.postBody}>
+				<PortableText value={post._rawBody} />
+			</div>
+			<div className={styles.playerContainer}>
+				<div className={styles.player}>
+					{post?.hasAudioPlayer === "Bandcamp" && (
+						<div
+							dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrameBrowser)} />
+					)}
+					{post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default BlogPost;
