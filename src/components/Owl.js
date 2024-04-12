@@ -37,7 +37,7 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 	// Unclear whether bug is part of framer motion or not. 
 	if (!isChrome) {
 		if (isMobile) {
-			return (
+			return ( showOwl &&
 				<div className={`${styles.overlay} ${styles.mobile} ${fadeOut ? styles.fadeOut : ""}`}
 					key="modal"
 					onClick={closeModal}>
@@ -53,7 +53,7 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 				</div>
 			);
 		}
-		return (
+		return ( showOwl &&
 			<div className={`${styles.overlay}  ${fadeOut ? styles.fadeOut : ""}`}
 				onClick={closeModal}>
 				<StaticImage 
