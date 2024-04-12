@@ -12,7 +12,7 @@
 
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import * as styles from "../styles/owlStyles.module.css";
+import * as styles from "../styles/OwlStyles.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Owl = ({ showOwl, setShowOwl, isMobile }) => {

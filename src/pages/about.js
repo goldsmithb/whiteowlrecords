@@ -30,7 +30,7 @@ const About = () => {
 		return (
 			<MobileLayout>
 				<div className={styles.containerMobile}>
-					<div className={styles.testMobile}>
+					<div className={styles.postMobile}>
 						<PortableText value={data.allSanityAboutPage.nodes[aboutPostIndex]._rawBody} />
 					</div>
 				</div>
