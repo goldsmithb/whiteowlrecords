@@ -18,7 +18,7 @@ const MobileLayout = ({ children }) => {
 		<>
 			<Owl showOwl={showOwl} setShowOwl={setShowOwl} isMobile={true} />
             
-			<div className={styles.topBar}>
+			<div className={`${styles.topBar} ${showOwl && styles.hideTopBar}`}>
 				<div className={styles.bannerWrapper}>
 					<Banner isMobile={true} />
 				</div>

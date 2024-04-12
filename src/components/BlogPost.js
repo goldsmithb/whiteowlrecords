@@ -1,5 +1,5 @@
 import React from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/soundcloud";
 import * as styles from "../styles/blogPostStyles.module.css";
 import { PortableText } from "@portabletext/react";
 import { fixIframeWidth } from "../utils.js";
@@ -7,13 +7,6 @@ import { fixIframeWidth } from "../utils.js";
 const BlogPost = ({ post, postCount, isMobile }) => {
 	const renderIframe = (iframeCode) => {
 		return { __html: iframeCode };
-	};
-
-	const renderReactPlayer = (url) => {
-		return (
-			<ReactPlayer 
-				controls={true}
-				url={url}/>);
 	};
 
 	if (isMobile) {
@@ -32,7 +25,10 @@ const BlogPost = ({ post, postCount, isMobile }) => {
 							<div
 								dangerouslySetInnerHTML={renderIframe(fixIframeWidth(post?.bandCampIFrameMobile))} />
 						)}
-						{post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+						{post?.hasAudioPlayer === "SoundCloud" && (<ReactPlayer 
+							controls={true}
+							url={post?.soundCloudURL}
+							width="100%"/>)}
 					</div>
 				</div>
 			</div>
@@ -52,7 +48,8 @@ const BlogPost = ({ post, postCount, isMobile }) => {
 						<div
 							dangerouslySetInnerHTML={renderIframe(post?.bandCampIFrameBrowser)} />
 					)}
-					{post?.hasAudioPlayer === "SoundCloud" && renderReactPlayer(post?.soundCloudURL)}
+					{post?.hasAudioPlayer === "SoundCloud" && (
+						<ReactPlayer controls={true} url={post?.soundCloudURL} className={styles.reactPlayer}/>)}
 				</div>
 			</div>
 		</div>

@@ -4,24 +4,48 @@ import Layout from "../components/layout.js";
 import MobileLayout from "../components/MobileLayout.js";
 import VariableContext from "../context/VariableProvider.js";
 import { PortableText } from "@portabletext/react";
-import * as styles from "../styles/blogPostStyles.module.css";
+import * as styles from "../styles/eventsPageStyles.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+// Helper function to determine if an event post should include an image
+// returns:
+//   hasImage: bool
+//   image: jsx component
+const renderGatsbyImageIfPresent = (eventPost) => {
+	let image = eventPost.image;
+	console.log("evetpos t ");
+	console.log(image);
+	if (image === null) {
+		return {
+			hasImage: false,
+		}; 
+	}
+	image = getImage(eventPost.image.asset.gatsbyImageData);
+	return {
+		hasImage: true, 
+		image: (
+			<div className={styles.image}>
+				<GatsbyImage image={image} alt="Event Image" />
+			</div>
+		)
+	};
+};
 
 const Events = () => {
 	const { isMobile } = useContext(VariableContext);
 	const data = useStaticQuery(graphql`
     query {
-        allSanityEventPost {
-            nodes {
-              _rawBody
-			  image {
-				asset {
-				  gatsbyImageData
-				}
+		allSanityEventPost(sort: {eventDate: DESC}) {
+		  nodes {
+			_rawBody
+			image {
+			  asset {
+				gatsbyImageData
 			  }
-            }
-          }
-        }
+			}
+		  }
+		}
+	  }
     `);
 	let key = 0;
 
@@ -30,12 +54,10 @@ const Events = () => {
 			<MobileLayout>
 				<div style={{ marginTop: "10vh" }} key={key++}>
 					{data.allSanityEventPost.nodes.map(eventPost => {
-						const img = getImage(eventPost.image.asset.gatsbyImageData);
+						const {hasImage, image} = renderGatsbyImageIfPresent(eventPost);
 						return (
 							<div className={styles.post} key={key++}>
-								<div className={styles.image}>
-									<GatsbyImage image={img} alt="Event Image" />
-								</div>
+								{hasImage && image}
 								<div className={styles.postBody}>
 									<PortableText value={eventPost._rawBody} />
 								</div>
@@ -46,17 +68,14 @@ const Events = () => {
 		);
 	}
 
-	console.log(data);
 	return (
 		<Layout showBanner={false}>
 			<div style={{ marginTop: "10vh" }}>
 				{data.allSanityEventPost.nodes.map(eventPost => {
-					const img = getImage(eventPost.image.asset.gatsbyImageData);
+					const {hasImage, image} = renderGatsbyImageIfPresent(eventPost);
 					return (
 						<div className={styles.post} key={key++}>
-							<div className={styles.image}>
-								<GatsbyImage image={img} alt="Event Image" />
-							</div>
+							{hasImage && image}
 							<div className={styles.postBody}>
 								<PortableText value={eventPost._rawBody} />
 							</div>

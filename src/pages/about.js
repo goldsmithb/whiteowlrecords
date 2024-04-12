@@ -22,6 +22,11 @@ const About = () => {
     `);
 
 	if (isMobile) {
+
+		if (data.allSanityAboutPage.nodes.length == 0) {
+			return (<MobileLayout></MobileLayout>);
+		}
+
 		return (
 			<MobileLayout>
 				<div className={styles.containerMobile}>
@@ -33,6 +38,11 @@ const About = () => {
 			</MobileLayout>
 		);
 	}
+
+	if (data.allSanityAboutPage.nodes.length == 0) {
+		return (<Layout></Layout>);
+	}
+
 	return (
 		<Layout>
 			<div className={styles.container}>

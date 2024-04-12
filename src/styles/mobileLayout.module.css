@@ -7,11 +7,16 @@
 .top-bar {
     position: fixed;
     top: 0;
+    z-index: 9000;
     display: flex;
     justify-content: space-between;
     width: 100%;
     background-image: url('../images/NAVY.jpg');
     padding-bottom: 2px;
+}
+
+.top-bar.hide-top-bar {
+    z-index: 0;
 }
 
 .middle-bar {
