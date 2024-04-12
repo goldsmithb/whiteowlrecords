@@ -1,0 +1,8 @@
+.menu-wrapper-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-right: 10px;
+    height: auto;
+}

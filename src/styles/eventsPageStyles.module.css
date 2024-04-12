@@ -1,0 +1,43 @@
+.post {
+    border-style: solid;
+    margin: 10px;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
+
+    display: flex;
+    justify-content: ;
+}
+
+.post-body a:link{
+    color: yellow;
+}
+
+.post-body a:visited {
+    color: orange;
+}
+
+.post-body a:active {
+    color: rgb(255, 115, 0);
+}
+
+.post-body {
+    flex: 15 1 650px;
+}
+
+.image {
+    flex: 1 1 350px;
+    padding: 25px;
+    padding-left: 0;
+}
+
+/*************    Mobile Styles ****************/
+ 
+.container-mobile {
+    width: 100%;
+}
+
+.post-mobile h1, h2, h3 {
+    letter-spacing: -1px;
+}

@@ -1,0 +1,74 @@
+.post {
+    border-style: solid;
+    margin: 10px;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
+}
+
+.post-body a:link{
+    color: yellow;
+}
+
+.post-body a:visited {
+    color: orange;
+}
+
+.post-body a:active {
+    color: rgb(255, 115, 0);
+}
+
+.title { 
+    text-align: center;
+    /* font-weight: 300; */
+}
+
+.heading {
+    color: black;
+}
+
+.banner {
+    width: 90vw;
+    height: 20vh;
+}
+
+.email-text {
+    color: rgb(from color .097, .214, .450);
+}
+
+.player-container {
+    width: 100%;
+}
+
+.player {
+    width: 640px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/*************    Mobile Styles ****************/
+
+.container-mobile {
+    width: 100%;
+}
+
+.player-mobile {
+    padding-top: 10px;
+    max-width: 350px;
+    margin: auto;
+    padding: 0 10px 0 10px;
+}
+
+.post-mobile {
+    border-style: solid;
+    margin: 10px;
+    margin-bottom: 40px;
+    padding: 25px 5px 25px 10px;
+    background-color: rgba(167, 167, 167, 0.18);
+    word-wrap: break-word;
+}
+
+.post-mobile h1 {
+    letter-spacing: -1px;
+}

@@ -1,3 +1,30 @@
+.site-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.left-col {
+    flex: 1 1 0;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.middle-col {
+    flex: 1 8 auto;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-col {
+    flex: 1 1 0;
+    width: 20vw;
+}
+
 .container {
     margin: auto;
     max-width: 1000px;
@@ -6,13 +33,6 @@
 .heading {
     color: white;
 }
-
-.site-title {
-    font-size: 3rem;
-    color: gray;
-    font-weight: 700;
-    margin: 3rem 0;
-  }
 
 .email-text {
     color: rgb(from color .097, .214, .450);

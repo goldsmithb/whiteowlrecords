@@ -2,15 +2,16 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    margin-bottom: 2pt;;
+    background-image: url('../images/NAVY_bar.png');
+    display: flex;
 }
 
 .bottom-bar-text {
-    text-align: center;
-    font-size: 12px;
-    width: fit-content;
-    background-image: url('../images/NAVY.jpg');
     margin: auto;
+}
+
+.bottom-bar-text.mobile {
+    padding: 5px 0 5px 0;
 }
 
 .link-text {

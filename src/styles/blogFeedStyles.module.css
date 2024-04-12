@@ -1,11 +1,3 @@
-.post {
-    border-style: solid;
-    margin: 10px;
-    margin-bottom: 40px;
-    padding: 25px;
-    background-color: rgba(167, 167, 167, 0.18);
-}
-
 .title {
     text-align: center;
 }
@@ -26,4 +18,10 @@
 
 .email-text {
     color: rgb(from color .097, .214, .450);
+}
+
+
+/* Mobile Styles */
+.container-mobile {
+    width: 100%;
 }
