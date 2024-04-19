@@ -25,7 +25,7 @@ const Layout = ({ showBanner, children }) => {
 			</div>
 
 			<div className={styles.middleCol}>
-				{children}
+				{!showOwl && children}
 			</div>
 
 			<div className={styles.rightCol}>

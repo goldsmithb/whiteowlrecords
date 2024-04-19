@@ -26,7 +26,7 @@ const MobileLayout = ({ children }) => {
 			</div>
 
 			<div className={styles.middleBar}>
-				{children}
+				{!showOwl && children}
 			</div>
             
 			{/* <BottomBar />   -- IMO this should only appear in the about page on mobile view.*/}
