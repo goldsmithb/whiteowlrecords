@@ -16,17 +16,18 @@ import * as styles from "../styles/OwlStyles.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { isChrome } from "react-device-detect";
 
-const Owl = ({ showOwl, setShowOwl, isMobile }) => {
+const Owl = ({ updateShowOwl, isMobile }) => {
 	const [fadeOut, setFadeOut] = useState(false); // for css fade out
+	console.log(typeof updateShowOwl);
 
 	const closeModal = () => {
 		if (isChrome) {
 			sessionStorage.setItem("hasOwlBeenShown", true);
-			setShowOwl(false);
+			updateShowOwl(false);
 		} else {
 			setTimeout(() => {
 				sessionStorage.setItem("hasOwlBeenShown", true);
-				setShowOwl(false);
+				updateShowOwl(false);
 			}, 500); // Adjust delay as needed
 			setFadeOut(true);
 		}
@@ -37,7 +38,7 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 	// Unclear whether bug is part of framer motion or not. 
 	if (!isChrome) {
 		if (isMobile) {
-			return ( showOwl &&
+			return ( //showOwl &&
 				<div className={`${styles.overlay} ${styles.mobile} ${fadeOut ? styles.fadeOut : ""}`}
 					key="modal"
 					onClick={closeModal}>
@@ -53,7 +54,7 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 				</div>
 			);
 		}
-		return ( showOwl &&
+		return ( //showOwl &&
 			<div className={`${styles.overlay}  ${fadeOut ? styles.fadeOut : ""}`}
 				onClick={closeModal}>
 				<StaticImage 
@@ -69,11 +70,13 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
 			</div>
 		);
 	}
+
+	// The following will be rendered on chrome browsers
 	if (isMobile) {
 		return (
 			<AnimatePresence>
-				{ showOwl &&
-                <motion.div    
+				{ //showOwl &&
+					<motion.div    
                 	key="modal"
                 	className={`${styles.overlay} ${styles.mobile}`}  
                 	exit={{ opacity: 0 }} // Animation when component leaves DOM
@@ -87,15 +90,15 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
                 	<div className={styles.textBox}>
                         ENTER
                 	</div>  
-                </motion.div>}
+					</motion.div>}
 			</AnimatePresence>
 		);
 	}
 
 	return (
 		<AnimatePresence>
-			{ showOwl &&
-                <motion.div    
+			{ // showOwl &&
+				<motion.div    
                 	// key="modal"
                 	className={styles.overlay}
                 	exit={{ opacity: 0 }} // Animation when component leaves DOM
@@ -111,7 +114,7 @@ const Owl = ({ showOwl, setShowOwl, isMobile }) => {
                             ENTER
                 		</div>
                 	</div>
-                </motion.div>}
+				</motion.div>}
 		</AnimatePresence>
 	);
 };

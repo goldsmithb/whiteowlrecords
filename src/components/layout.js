@@ -4,9 +4,11 @@ import BottomBar from "./BottomBar.js";
 import HamburgerMenu from "../components/HamburgerMenu.js";
 import Owl from "../components/Owl.js";
 
-const Layout = ({ showBanner, children }) => {
+const Layout = ({ children }) => {
 	const [showOwl, setShowOwl] = useState(false);
-
+	const updateShowOwl = (b) => {
+		console.log("setting " + b); setShowOwl(b);
+	};
 	useEffect(() => {
 		const val = sessionStorage.getItem("hasOwlBeenShown");
 		let hasOwlBeenShown = val === "true" ? true : false;
@@ -17,20 +19,22 @@ const Layout = ({ showBanner, children }) => {
 
 	return (
 		<div className={styles.siteWrap}>
+			{showOwl && <Owl updateShowOwl={updateShowOwl} />}
+			{/* todo: do this in a cleaner way =- but do not render components hidden behind owl! */}
+			{!showOwl && (<>
+				<div className={styles.leftCol}>
+					<HamburgerMenu />
+				</div>
 
-			<Owl showOwl={showOwl} setShowOwl={setShowOwl} />
+				<div className={styles.middleCol}>
+					{children}
+				</div>
 
-			<div className={styles.leftCol}>
-				<HamburgerMenu />
-			</div>
-
-			<div className={styles.middleCol}>
-				{!showOwl && children}
-			</div>
-
-			<div className={styles.rightCol}>
-			</div>
-			<BottomBar />
+				<div className={styles.rightCol}>
+				</div>
+				<BottomBar />
+			</>)}
+			
 		</div>
 	);
 };
